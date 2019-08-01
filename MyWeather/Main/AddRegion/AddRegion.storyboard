@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BA6-At-35S">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Region View Controller-->
+        <scene sceneID="xxj-oX-FTJ">
+            <objects>
+                <viewController id="BA6-At-35S" customClass="AddRegionViewController" customModule="MyWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wx4-uC-oNO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zak-dN-hrg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" barStyle="black" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GbW-F5-kH8">
+                                        <rect key="frame" x="0.0" y="74" width="414" height="56"/>
+                                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </searchBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도시, 우편번호 또는 공항 위치 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-bC-AD5">
+                                        <rect key="frame" x="0.0" y="42" width="414" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GbW-F5-kH8" secondAttribute="trailing" id="3bM-uD-ZU3"/>
+                                    <constraint firstItem="GbW-F5-kH8" firstAttribute="top" secondItem="yRg-bC-AD5" secondAttribute="bottom" constant="16" id="88Z-Li-GrZ"/>
+                                    <constraint firstAttribute="height" constant="130" id="Ivb-vu-dG8"/>
+                                    <constraint firstAttribute="bottom" secondItem="GbW-F5-kH8" secondAttribute="bottom" id="ZBu-JO-nCW"/>
+                                    <constraint firstAttribute="trailing" secondItem="yRg-bC-AD5" secondAttribute="trailing" id="cjJ-i1-PCP"/>
+                                    <constraint firstItem="yRg-bC-AD5" firstAttribute="leading" secondItem="zak-dN-hrg" secondAttribute="leading" id="xOo-FL-CMt"/>
+                                    <constraint firstItem="GbW-F5-kH8" firstAttribute="leading" secondItem="zak-dN-hrg" secondAttribute="leading" id="yE5-nW-pMo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uIW-1G-e7t" firstAttribute="trailing" secondItem="zak-dN-hrg" secondAttribute="trailing" id="HA2-7b-AR5"/>
+                            <constraint firstItem="zak-dN-hrg" firstAttribute="top" secondItem="Wx4-uC-oNO" secondAttribute="top" id="tf7-BL-3M3"/>
+                            <constraint firstItem="zak-dN-hrg" firstAttribute="leading" secondItem="uIW-1G-e7t" secondAttribute="leading" id="xsp-VM-Ng4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uIW-1G-e7t"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="GbW-F5-kH8" id="EkJ-vS-VPi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohy-Pa-gfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="-71"/>
+        </scene>
+    </scenes>
+</document>

@@ -19,9 +19,19 @@
 		D922122022F1C99F00DAC2F2 /* HoursWeatherCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922121F22F1C99F00DAC2F2 /* HoursWeatherCollectionView.swift */; };
 		D922122222F1CB2400DAC2F2 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922122122F1CB2400DAC2F2 /* UICollectionView.swift */; };
 		D922122622F1F0C800DAC2F2 /* RegionWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922122522F1F0C800DAC2F2 /* RegionWeatherViewController.swift */; };
+		D922122822F2CF1B00DAC2F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D922122722F2CF1B00DAC2F2 /* Main.storyboard */; };
+		D922122A22F2CF3E00DAC2F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922122922F2CF3E00DAC2F2 /* MainViewController.swift */; };
+		D922122D22F2CFFE00DAC2F2 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922122B22F2CFFE00DAC2F2 /* MainTableViewCell.swift */; };
+		D922122E22F2CFFE00DAC2F2 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922122C22F2CFFE00DAC2F2 /* MainTableViewCell.xib */; };
+		D922123022F2D3B200DAC2F2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922122F22F2D3B200DAC2F2 /* String.swift */; };
+		D922123222F2D56100DAC2F2 /* MainTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922123122F2D56100DAC2F2 /* MainTableFooterView.swift */; };
+		D922123422F2D56F00DAC2F2 /* MainTableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D922123322F2D56F00DAC2F2 /* MainTableFooterView.xib */; };
+		D922123622F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922123522F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift */; };
+		D922123822F2E6B600DAC2F2 /* AddRegion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D922123722F2E6B600DAC2F2 /* AddRegion.storyboard */; };
+		D922123A22F2E6C700DAC2F2 /* AddRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922123922F2E6C700DAC2F2 /* AddRegionViewController.swift */; };
 		D9AF425222F18F93008696F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF425122F18F93008696F0 /* AppDelegate.swift */; };
 		D9AF425422F18F93008696F0 /* OldRegionWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */; };
-		D9AF425722F18F93008696F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425522F18F93008696F0 /* Main.storyboard */; };
+		D9AF425722F18F93008696F0 /* RegionWeather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425522F18F93008696F0 /* RegionWeather.storyboard */; };
 		D9AF425922F18F94008696F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425822F18F94008696F0 /* Assets.xcassets */; };
 		D9AF425C22F18F94008696F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425A22F18F94008696F0 /* LaunchScreen.storyboard */; };
 		D9AF426722F18F94008696F0 /* MyWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF426622F18F94008696F0 /* MyWeatherTests.swift */; };
@@ -50,10 +60,20 @@
 		D922121F22F1C99F00DAC2F2 /* HoursWeatherCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursWeatherCollectionView.swift; sourceTree = "<group>"; };
 		D922122122F1CB2400DAC2F2 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		D922122522F1F0C800DAC2F2 /* RegionWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionWeatherViewController.swift; sourceTree = "<group>"; };
+		D922122722F2CF1B00DAC2F2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D922122922F2CF3E00DAC2F2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D922122B22F2CFFE00DAC2F2 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		D922122C22F2CFFE00DAC2F2 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		D922122F22F2D3B200DAC2F2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D922123122F2D56100DAC2F2 /* MainTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableFooterView.swift; sourceTree = "<group>"; };
+		D922123322F2D56F00DAC2F2 /* MainTableFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableFooterView.xib; sourceTree = "<group>"; };
+		D922123522F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableFooterViewDelegate.swift; sourceTree = "<group>"; };
+		D922123722F2E6B600DAC2F2 /* AddRegion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddRegion.storyboard; sourceTree = "<group>"; };
+		D922123922F2E6C700DAC2F2 /* AddRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegionViewController.swift; sourceTree = "<group>"; };
 		D9AF424E22F18F93008696F0 /* MyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AF425122F18F93008696F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldRegionWeatherViewController.swift; sourceTree = "<group>"; };
-		D9AF425622F18F93008696F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9AF425622F18F93008696F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RegionWeather.storyboard; sourceTree = "<group>"; };
 		D9AF425822F18F94008696F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9AF425B22F18F94008696F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9AF425D22F18F94008696F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				D922121522F1BD8F00DAC2F2 /* Reusable+Extension.swift */,
+				D922123522F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -101,8 +122,18 @@
 				D922121722F1BE6B00DAC2F2 /* UITableView.swift */,
 				D922122122F1CB2400DAC2F2 /* UICollectionView.swift */,
 				D922121922F1C0F600DAC2F2 /* UINib.swift */,
+				D922122F22F2D3B200DAC2F2 /* String.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D922123B22F2E6DB00DAC2F2 /* AddRegion */ = {
+			isa = PBXGroup;
+			children = (
+				D922123922F2E6C700DAC2F2 /* AddRegionViewController.swift */,
+				D922123722F2E6B600DAC2F2 /* AddRegion.storyboard */,
+			);
+			path = AddRegion;
 			sourceTree = "<group>";
 		};
 		D9AF424522F18F93008696F0 = {
@@ -159,6 +190,13 @@
 		D9AF427222F19696008696F0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D922122922F2CF3E00DAC2F2 /* MainViewController.swift */,
+				D922122722F2CF1B00DAC2F2 /* Main.storyboard */,
+				D922122B22F2CFFE00DAC2F2 /* MainTableViewCell.swift */,
+				D922122C22F2CFFE00DAC2F2 /* MainTableViewCell.xib */,
+				D922123122F2D56100DAC2F2 /* MainTableFooterView.swift */,
+				D922123322F2D56F00DAC2F2 /* MainTableFooterView.xib */,
+				D922123B22F2E6DB00DAC2F2 /* AddRegion */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -168,7 +206,7 @@
 			children = (
 				D922122522F1F0C800DAC2F2 /* RegionWeatherViewController.swift */,
 				D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */,
-				D9AF425522F18F93008696F0 /* Main.storyboard */,
+				D9AF425522F18F93008696F0 /* RegionWeather.storyboard */,
 				D922120622F1A19500DAC2F2 /* RegionWeatherHeaderView.swift */,
 				D922120822F1A1A700DAC2F2 /* RegionWeatherHeaderView.xib */,
 				D922121F22F1C99F00DAC2F2 /* HoursWeatherCollectionView.swift */,
@@ -261,12 +299,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D922122822F2CF1B00DAC2F2 /* Main.storyboard in Resources */,
 				D922121122F1B6D100DAC2F2 /* RegionWeatherTableViewCell.xib in Resources */,
 				D922120922F1A1A700DAC2F2 /* RegionWeatherHeaderView.xib in Resources */,
 				D9AF425C22F18F94008696F0 /* LaunchScreen.storyboard in Resources */,
 				D922121E22F1C5EF00DAC2F2 /* HoursWeatherCollectionViewCell.xib in Resources */,
 				D9AF425922F18F94008696F0 /* Assets.xcassets in Resources */,
-				D9AF425722F18F93008696F0 /* Main.storyboard in Resources */,
+				D922123422F2D56F00DAC2F2 /* MainTableFooterView.xib in Resources */,
+				D922122E22F2CFFE00DAC2F2 /* MainTableViewCell.xib in Resources */,
+				D922123822F2E6B600DAC2F2 /* AddRegion.storyboard in Resources */,
+				D9AF425722F18F93008696F0 /* RegionWeather.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,16 +326,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D922123222F2D56100DAC2F2 /* MainTableFooterView.swift in Sources */,
+				D922122D22F2CFFE00DAC2F2 /* MainTableViewCell.swift in Sources */,
 				D922122222F1CB2400DAC2F2 /* UICollectionView.swift in Sources */,
 				D922122622F1F0C800DAC2F2 /* RegionWeatherViewController.swift in Sources */,
 				D922122022F1C99F00DAC2F2 /* HoursWeatherCollectionView.swift in Sources */,
+				D922123022F2D3B200DAC2F2 /* String.swift in Sources */,
+				D922122A22F2CF3E00DAC2F2 /* MainViewController.swift in Sources */,
 				D922121622F1BD8F00DAC2F2 /* Reusable+Extension.swift in Sources */,
 				D922121A22F1C0F600DAC2F2 /* UINib.swift in Sources */,
 				D922121022F1B6D100DAC2F2 /* RegionWeatherTableViewCell.swift in Sources */,
+				D922123622F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift in Sources */,
 				D922120722F1A19500DAC2F2 /* RegionWeatherHeaderView.swift in Sources */,
 				D9AF425422F18F93008696F0 /* OldRegionWeatherViewController.swift in Sources */,
 				D9AF425222F18F93008696F0 /* AppDelegate.swift in Sources */,
 				D922121822F1BE6B00DAC2F2 /* UITableView.swift in Sources */,
+				D922123A22F2E6C700DAC2F2 /* AddRegionViewController.swift in Sources */,
 				D922121D22F1C5EF00DAC2F2 /* HoursWeatherCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,12 +365,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D9AF425522F18F93008696F0 /* Main.storyboard */ = {
+		D9AF425522F18F93008696F0 /* RegionWeather.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D9AF425622F18F93008696F0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = RegionWeather.storyboard;
 			sourceTree = "<group>";
 		};
 		D9AF425A22F18F94008696F0 /* LaunchScreen.storyboard */ = {

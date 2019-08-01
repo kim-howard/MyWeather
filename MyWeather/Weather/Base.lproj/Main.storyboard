@@ -117,7 +117,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaP-xr-ZcX">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaP-xr-ZcX">
                                 <rect key="frame" x="0.0" y="120" width="375" height="497"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q81-2F-t66" userLabel="Content View">
@@ -148,7 +148,7 @@
                                                     <constraint firstAttribute="height" constant="130" id="XCL-SN-GWs"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XQT-eV-K9K">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XQT-eV-K9K">
                                                 <rect key="frame" x="0.0" y="230" width="375" height="267"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -209,10 +209,10 @@
                         <viewLayoutGuide key="safeArea" id="Zhw-5r-KJo"/>
                     </view>
                     <connections>
-                        <outlet property="scrollContentView" destination="q81-2F-t66" id="coz-NI-Adx"/>
-                        <outlet property="scrollView" destination="OaP-xr-ZcX" id="djO-WX-c3l"/>
+                        <outlet property="scrollContentView" destination="q81-2F-t66" id="s6V-hh-CFF"/>
                         <outlet property="tableView" destination="XQT-eV-K9K" id="h1b-9b-g3U"/>
                         <outlet property="tableViewHeight" destination="ZNF-Mk-vWG" id="3OP-oj-k89"/>
+                        <outlet property="wrapperScrollView" destination="OaP-xr-ZcX" id="djO-WX-c3l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7w-If-AKL" sceneMemberID="firstResponder"/>

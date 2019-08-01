@@ -17,10 +17,12 @@ import UIKit
 
 class RegionWeatherViewController: UIViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView! {
+    // MARK: - IBOutlet
+    
+    @IBOutlet weak var wrapperScrollView: UIScrollView! {
         didSet {
-            scrollView.delegate = self
-            scrollView.showsVerticalScrollIndicator = false
+            wrapperScrollView.delegate = self
+            wrapperScrollView.showsVerticalScrollIndicator = false
         }
     }
     @IBOutlet weak var scrollContentView: UIView!
@@ -33,18 +35,20 @@ class RegionWeatherViewController: UIViewController {
         }
     }
     
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewHeight.constant = view.frame.height - 300
     }
     
-
-}
-
-extension RegionWeatherViewController: UIScrollViewDelegate {
+    // MARK: - Method
     
+    
+
 }
+
+// MARK: - UITableViewDataSource
 
 extension RegionWeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,13 +58,34 @@ extension RegionWeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-    
+}
+
+// MARK: - UITableViewDelegate
+
+extension RegionWeatherViewController: UITableViewDelegate {
     
 }
 
-extension RegionWeatherViewController: UITableViewDelegate {
+// MARK: - UIScrollViewDelegate
+
+extension RegionWeatherViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //
+        // 전달할 스크롤에 offset을 더하고 기존 스크롤은 유지한다.
+        // 테이블뷰를 내리는 액션으로 스크롤뷰를 내리는 경우
+        if scrollView == tableView && wrapperScrollView.contentOffset.y < 100{
+            wrapperScrollView.setContentOffset(
+                CGPoint(x: 0, y: wrapperScrollView.contentOffset.y + scrollView.contentOffset.y),
+                animated: false)
+            tableView.setContentOffset(CGPoint.zero, animated: false)
+        }
+        
+        // 테이블뷰를 계속 올리는 경우
+        if scrollView == tableView && tableView.contentOffset.y <= 0 {
+            wrapperScrollView.setContentOffset(
+                CGPoint(x: 0, y: wrapperScrollView.contentOffset.y + scrollView.contentOffset.y),
+                animated: false)
+            tableView.setContentOffset(CGPoint.zero, animated: false)
+        }
     }
 }
 

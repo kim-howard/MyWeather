@@ -66,10 +66,26 @@
                                     <constraint firstItem="yRg-bC-AD5" firstAttribute="leading" secondItem="zak-dN-hrg" secondAttribute="leading" id="xOo-FL-CMt"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="29e-d6-TSe">
+                                <rect key="frame" x="0.0" y="130" width="414" height="766"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohv-hL-Jyy">
+                                <rect key="frame" x="186" y="146" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="uIW-1G-e7t" firstAttribute="trailing" secondItem="29e-d6-TSe" secondAttribute="trailing" id="AR7-XV-Fe4"/>
+                            <constraint firstItem="Ohv-hL-Jyy" firstAttribute="top" secondItem="zak-dN-hrg" secondAttribute="bottom" constant="16" id="DKy-Ed-Tgh"/>
+                            <constraint firstItem="Ohv-hL-Jyy" firstAttribute="centerX" secondItem="Wx4-uC-oNO" secondAttribute="centerX" id="Efy-Ve-s9t"/>
                             <constraint firstItem="uIW-1G-e7t" firstAttribute="trailing" secondItem="zak-dN-hrg" secondAttribute="trailing" id="HA2-7b-AR5"/>
+                            <constraint firstAttribute="bottom" secondItem="29e-d6-TSe" secondAttribute="bottom" id="jLe-yT-5v9"/>
+                            <constraint firstItem="29e-d6-TSe" firstAttribute="top" secondItem="zak-dN-hrg" secondAttribute="bottom" id="lbV-4X-B5J"/>
+                            <constraint firstItem="29e-d6-TSe" firstAttribute="leading" secondItem="uIW-1G-e7t" secondAttribute="leading" id="olK-So-2hW"/>
                             <constraint firstItem="zak-dN-hrg" firstAttribute="top" secondItem="Wx4-uC-oNO" secondAttribute="top" id="tf7-BL-3M3"/>
                             <constraint firstItem="zak-dN-hrg" firstAttribute="leading" secondItem="uIW-1G-e7t" secondAttribute="leading" id="xsp-VM-Ng4"/>
                         </constraints>
@@ -78,6 +94,8 @@
                     <connections>
                         <outlet property="cancelButton" destination="53u-49-Jpc" id="0zh-k1-ZyK"/>
                         <outlet property="regionSearchBar" destination="GbW-F5-kH8" id="knE-AQ-TGd"/>
+                        <outlet property="statusLabel" destination="Ohv-hL-Jyy" id="VaA-pe-8gt"/>
+                        <outlet property="tableView" destination="29e-d6-TSe" id="1NG-Fc-Axu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohy-Pa-gfi" userLabel="First Responder" sceneMemberID="firstResponder"/>

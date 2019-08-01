@@ -92,6 +92,7 @@ extension MainViewController: MainTableFooterViewDelegate {
         guard let addResionViewController =
             UIStoryboard(name: "AddRegion", bundle: nil).instantiateInitialViewController() as? AddRegionViewController
             else { fatalError("AddRegion Error") }
+        addResionViewController.delegate = self
         self.present(addResionViewController, animated: true)
     }
 }
@@ -102,5 +103,12 @@ extension MainViewController: MainTableFooterViewDelegate {
 extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         customLocationManager.checkLocationService(didChangeAuthorization: status)
+    }
+}
+
+extension MainViewController: AddRegionDelegate {
+    // 검색한 결과를 받는다.
+    func addRegion(_ location: CLLocationCoordinate2D) {
+        print(location)
     }
 }

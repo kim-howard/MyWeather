@@ -9,7 +9,8 @@
 import Foundation
 
 extension String {
-    static func markTemparature() -> String {
+    // 도씨 를 넣을 때 사용
+    func markTemparature() -> String {
         return "\(self)°"
     }
 }

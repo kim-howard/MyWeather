@@ -24,12 +24,14 @@ class MainViewController: UIViewController {
     }()
     
     var customLocationManager = CustomLocationManager()
+    let networkManager = NetworkManager()
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
+        networkManager.requestWeather()
     }
     
     // MARK: - Method

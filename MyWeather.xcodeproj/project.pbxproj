@@ -30,6 +30,9 @@
 		D922123822F2E6B600DAC2F2 /* AddRegion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D922123722F2E6B600DAC2F2 /* AddRegion.storyboard */; };
 		D922123A22F2E6C700DAC2F2 /* AddRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922123922F2E6C700DAC2F2 /* AddRegionViewController.swift */; };
 		D94599BD22F3173900F77B14 /* CustomLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599BC22F3173900F77B14 /* CustomLocationManager.swift */; };
+		D94599C222F31CC700F77B14 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599C122F31CC700F77B14 /* NetworkManager.swift */; };
+		D94599C422F3251500F77B14 /* DarkSkyForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599C322F3251500F77B14 /* DarkSkyForecastModel.swift */; };
+		D94599C622F3379900F77B14 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599C522F3379900F77B14 /* Date.swift */; };
 		D9AF425222F18F93008696F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF425122F18F93008696F0 /* AppDelegate.swift */; };
 		D9AF425422F18F93008696F0 /* OldRegionWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */; };
 		D9AF425722F18F93008696F0 /* RegionWeather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425522F18F93008696F0 /* RegionWeather.storyboard */; };
@@ -72,6 +75,9 @@
 		D922123722F2E6B600DAC2F2 /* AddRegion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddRegion.storyboard; sourceTree = "<group>"; };
 		D922123922F2E6C700DAC2F2 /* AddRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegionViewController.swift; sourceTree = "<group>"; };
 		D94599BC22F3173900F77B14 /* CustomLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationManager.swift; sourceTree = "<group>"; };
+		D94599C122F31CC700F77B14 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D94599C322F3251500F77B14 /* DarkSkyForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyForecastModel.swift; sourceTree = "<group>"; };
+		D94599C522F3379900F77B14 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D9AF424E22F18F93008696F0 /* MyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AF425122F18F93008696F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldRegionWeatherViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 				D922122122F1CB2400DAC2F2 /* UICollectionView.swift */,
 				D922121922F1C0F600DAC2F2 /* UINib.swift */,
 				D922122F22F2D3B200DAC2F2 /* String.swift */,
+				D94599C522F3379900F77B14 /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -136,6 +143,15 @@
 				D922123722F2E6B600DAC2F2 /* AddRegion.storyboard */,
 			);
 			path = AddRegion;
+			sourceTree = "<group>";
+		};
+		D94599BE22F31CAD00F77B14 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D94599C122F31CC700F77B14 /* NetworkManager.swift */,
+				D94599C322F3251500F77B14 /* DarkSkyForecastModel.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		D9AF424522F18F93008696F0 = {
@@ -159,6 +175,7 @@
 		D9AF425022F18F93008696F0 /* MyWeather */ = {
 			isa = PBXGroup;
 			children = (
+				D94599BE22F31CAD00F77B14 /* Network */,
 				D9AF427222F19696008696F0 /* Main */,
 				D9AF427322F19698008696F0 /* Weather */,
 				D9AF427122F19685008696F0 /* SupportingFiles */,
@@ -329,7 +346,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94599C222F31CC700F77B14 /* NetworkManager.swift in Sources */,
 				D922123222F2D56100DAC2F2 /* MainTableFooterView.swift in Sources */,
+				D94599C422F3251500F77B14 /* DarkSkyForecastModel.swift in Sources */,
 				D922122D22F2CFFE00DAC2F2 /* MainTableViewCell.swift in Sources */,
 				D922122222F1CB2400DAC2F2 /* UICollectionView.swift in Sources */,
 				D922122622F1F0C800DAC2F2 /* RegionWeatherViewController.swift in Sources */,
@@ -343,6 +362,7 @@
 				D922123622F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift in Sources */,
 				D922120722F1A19500DAC2F2 /* RegionWeatherHeaderView.swift in Sources */,
 				D9AF425422F18F93008696F0 /* OldRegionWeatherViewController.swift in Sources */,
+				D94599C622F3379900F77B14 /* Date.swift in Sources */,
 				D9AF425222F18F93008696F0 /* AppDelegate.swift in Sources */,
 				D922121822F1BE6B00DAC2F2 /* UITableView.swift in Sources */,
 				D922123A22F2E6C700DAC2F2 /* AddRegionViewController.swift in Sources */,

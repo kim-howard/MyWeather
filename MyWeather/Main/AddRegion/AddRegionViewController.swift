@@ -17,6 +17,8 @@ class AddRegionViewController: UIViewController {
         }
     }
     
+    var editingTimer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setSetachBar()
@@ -35,8 +37,14 @@ class AddRegionViewController: UIViewController {
 extension AddRegionViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // 0.5 초간 반응이 없으면 검색
-        print("textDidChange")
+        if let editingTimer = editingTimer {
+            editingTimer.invalidate()
+        }
+        
+        editingTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            // send Request
+            print("good")
+        })
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegionWeatherTableViewCell: UITableViewCell {
+class RegionWeatherTableViewCell: UITableViewCell, Reusable {
 
     override func awakeFromNib() {
         super.awakeFromNib()

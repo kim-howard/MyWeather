@@ -21,27 +21,49 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zak-dN-hrg">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" barStyle="black" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GbW-F5-kH8">
-                                        <rect key="frame" x="0.0" y="74" width="414" height="56"/>
-                                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                    </searchBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도시, 우편번호 또는 공항 위치 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-bC-AD5">
                                         <rect key="frame" x="0.0" y="42" width="414" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-w3-Wb9">
+                                        <rect key="frame" x="0.0" y="74" width="414" height="56"/>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="GbW-F5-kH8">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="56"/>
+                                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </searchBar>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53u-49-Jpc">
+                                                <rect key="frame" x="366" y="13" width="48" height="30"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="GbW-F5-kH8" secondAttribute="bottom" id="1vU-UZ-7PU"/>
+                                            <constraint firstItem="GbW-F5-kH8" firstAttribute="leading" secondItem="FVF-w3-Wb9" secondAttribute="leading" id="5aE-YO-dCb"/>
+                                            <constraint firstItem="GbW-F5-kH8" firstAttribute="top" secondItem="FVF-w3-Wb9" secondAttribute="top" id="Kg8-ER-Dib"/>
+                                            <constraint firstAttribute="trailing" secondItem="53u-49-Jpc" secondAttribute="trailing" id="PdS-6B-St9"/>
+                                            <constraint firstItem="53u-49-Jpc" firstAttribute="centerY" secondItem="FVF-w3-Wb9" secondAttribute="centerY" id="RrT-pT-9sP"/>
+                                            <constraint firstItem="GbW-F5-kH8" firstAttribute="leading" secondItem="FVF-w3-Wb9" secondAttribute="leading" id="a5n-qd-rnz"/>
+                                            <constraint firstItem="53u-49-Jpc" firstAttribute="leading" secondItem="GbW-F5-kH8" secondAttribute="trailing" id="aGI-hX-V6u"/>
+                                            <constraint firstAttribute="bottom" secondItem="GbW-F5-kH8" secondAttribute="bottom" id="fOb-Qe-Q96"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="GbW-F5-kH8" secondAttribute="trailing" id="3bM-uD-ZU3"/>
-                                    <constraint firstItem="GbW-F5-kH8" firstAttribute="top" secondItem="yRg-bC-AD5" secondAttribute="bottom" constant="16" id="88Z-Li-GrZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FVF-w3-Wb9" secondAttribute="bottom" id="Dwg-bF-7RQ"/>
                                     <constraint firstAttribute="height" constant="130" id="Ivb-vu-dG8"/>
-                                    <constraint firstAttribute="bottom" secondItem="GbW-F5-kH8" secondAttribute="bottom" id="ZBu-JO-nCW"/>
+                                    <constraint firstAttribute="trailing" secondItem="FVF-w3-Wb9" secondAttribute="trailing" id="SXk-HC-U8E"/>
                                     <constraint firstAttribute="trailing" secondItem="yRg-bC-AD5" secondAttribute="trailing" id="cjJ-i1-PCP"/>
+                                    <constraint firstItem="FVF-w3-Wb9" firstAttribute="top" secondItem="yRg-bC-AD5" secondAttribute="bottom" constant="16" id="nPz-SN-W1r"/>
+                                    <constraint firstItem="FVF-w3-Wb9" firstAttribute="leading" secondItem="zak-dN-hrg" secondAttribute="leading" id="w81-uL-58a"/>
                                     <constraint firstItem="yRg-bC-AD5" firstAttribute="leading" secondItem="zak-dN-hrg" secondAttribute="leading" id="xOo-FL-CMt"/>
-                                    <constraint firstItem="GbW-F5-kH8" firstAttribute="leading" secondItem="zak-dN-hrg" secondAttribute="leading" id="yE5-nW-pMo"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -54,12 +76,13 @@
                         <viewLayoutGuide key="safeArea" id="uIW-1G-e7t"/>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="GbW-F5-kH8" id="EkJ-vS-VPi"/>
+                        <outlet property="cancelButton" destination="53u-49-Jpc" id="0zh-k1-ZyK"/>
+                        <outlet property="regionSearchBar" destination="GbW-F5-kH8" id="knE-AQ-TGd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohy-Pa-gfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-180" y="-71"/>
+            <point key="canvasLocation" x="-213.04347826086959" y="-47.544642857142854"/>
         </scene>
     </scenes>
 </document>

@@ -29,6 +29,7 @@
 		D922123622F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922123522F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift */; };
 		D922123822F2E6B600DAC2F2 /* AddRegion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D922123722F2E6B600DAC2F2 /* AddRegion.storyboard */; };
 		D922123A22F2E6C700DAC2F2 /* AddRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D922123922F2E6C700DAC2F2 /* AddRegionViewController.swift */; };
+		D94599BD22F3173900F77B14 /* CustomLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599BC22F3173900F77B14 /* CustomLocationManager.swift */; };
 		D9AF425222F18F93008696F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF425122F18F93008696F0 /* AppDelegate.swift */; };
 		D9AF425422F18F93008696F0 /* OldRegionWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */; };
 		D9AF425722F18F93008696F0 /* RegionWeather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425522F18F93008696F0 /* RegionWeather.storyboard */; };
@@ -70,6 +71,7 @@
 		D922123522F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableFooterViewDelegate.swift; sourceTree = "<group>"; };
 		D922123722F2E6B600DAC2F2 /* AddRegion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddRegion.storyboard; sourceTree = "<group>"; };
 		D922123922F2E6C700DAC2F2 /* AddRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegionViewController.swift; sourceTree = "<group>"; };
+		D94599BC22F3173900F77B14 /* CustomLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationManager.swift; sourceTree = "<group>"; };
 		D9AF424E22F18F93008696F0 /* MyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AF425122F18F93008696F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldRegionWeatherViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				D922123122F2D56100DAC2F2 /* MainTableFooterView.swift */,
 				D922123322F2D56F00DAC2F2 /* MainTableFooterView.xib */,
 				D922123B22F2E6DB00DAC2F2 /* AddRegion */,
+				D94599BC22F3173900F77B14 /* CustomLocationManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				D922122A22F2CF3E00DAC2F2 /* MainViewController.swift in Sources */,
 				D922121622F1BD8F00DAC2F2 /* Reusable+Extension.swift in Sources */,
 				D922121A22F1C0F600DAC2F2 /* UINib.swift in Sources */,
+				D94599BD22F3173900F77B14 /* CustomLocationManager.swift in Sources */,
 				D922121022F1B6D100DAC2F2 /* RegionWeatherTableViewCell.swift in Sources */,
 				D922123622F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift in Sources */,
 				D922120722F1A19500DAC2F2 /* RegionWeatherHeaderView.swift in Sources */,
@@ -505,7 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 74HR8KDU73;
 				INFOPLIST_FILE = MyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,7 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 74HR8KDU73;
 				INFOPLIST_FILE = MyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

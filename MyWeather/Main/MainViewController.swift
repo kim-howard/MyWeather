@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController {
 
@@ -21,6 +22,8 @@ class MainViewController: UIViewController {
         nibView.delegate = self
         return nibView
     }()
+    
+    var customLocationManager = CustomLocationManager()
     
     // MARK: - LifeCycle
     
@@ -80,6 +83,7 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - MainTableFooterViewDelegate
 
 extension MainViewController: MainTableFooterViewDelegate {
     func didTapPlusButton() {
@@ -87,5 +91,14 @@ extension MainViewController: MainTableFooterViewDelegate {
             UIStoryboard(name: "AddRegion", bundle: nil).instantiateInitialViewController() as? AddRegionViewController
             else { fatalError("AddRegion Error") }
         self.present(addResionViewController, animated: true)
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+
+// TODO: 위치 확인해서 테이블뷰에 추가하는 로직
+extension MainViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        customLocationManager.checkLocationService(didChangeAuthorization: status)
     }
 }

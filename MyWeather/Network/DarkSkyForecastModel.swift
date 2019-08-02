@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DarkSkyForecaseModel: Codable {
+struct DarkSkyForecastModel: Codable {
     
     let latitude, longitude: Double
     let timezone: String

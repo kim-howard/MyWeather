@@ -41,6 +41,10 @@
 		D94599D822F428EC00F77B14 /* APIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599D722F428EC00F77B14 /* APIBase.swift */; };
 		D94599DC22F4465900F77B14 /* TemparatureDegree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599DB22F4465900F77B14 /* TemparatureDegree.swift */; };
 		D94599E022F4489900F77B14 /* Double+TemparatureDegree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599DF22F4489900F77B14 /* Double+TemparatureDegree.swift */; };
+		D94599E422F44B3C00F77B14 /* WeatherContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599E322F44B3C00F77B14 /* WeatherContainerViewController.swift */; };
+		D94599E622F4519D00F77B14 /* WeatherContainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94599E522F4519D00F77B14 /* WeatherContainer.storyboard */; };
+		D94599EC22F46AFE00F77B14 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599EB22F46AFE00F77B14 /* UserDefaultKey.swift */; };
+		D94599EE22F46BF700F77B14 /* RegionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94599ED22F46BF700F77B14 /* RegionInformation.swift */; };
 		D9AF425222F18F93008696F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF425122F18F93008696F0 /* AppDelegate.swift */; };
 		D9AF425422F18F93008696F0 /* OldRegionWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */; };
 		D9AF425722F18F93008696F0 /* RegionWeather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425522F18F93008696F0 /* RegionWeather.storyboard */; };
@@ -94,6 +98,10 @@
 		D94599D722F428EC00F77B14 /* APIBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBase.swift; sourceTree = "<group>"; };
 		D94599DB22F4465900F77B14 /* TemparatureDegree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemparatureDegree.swift; sourceTree = "<group>"; };
 		D94599DF22F4489900F77B14 /* Double+TemparatureDegree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+TemparatureDegree.swift"; sourceTree = "<group>"; };
+		D94599E322F44B3C00F77B14 /* WeatherContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherContainerViewController.swift; sourceTree = "<group>"; };
+		D94599E522F4519D00F77B14 /* WeatherContainer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherContainer.storyboard; sourceTree = "<group>"; };
+		D94599EB22F46AFE00F77B14 /* UserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
+		D94599ED22F46BF700F77B14 /* RegionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionInformation.swift; sourceTree = "<group>"; };
 		D9AF424E22F18F93008696F0 /* MyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AF425122F18F93008696F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldRegionWeatherViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +146,10 @@
 		D922121322F1BD7A00DAC2F2 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				D94599D522F428AF00F77B14 /* DarkSkyAPI.swift */,
 				D94599DB22F4465900F77B14 /* TemparatureDegree.swift */,
+				D94599EB22F46AFE00F77B14 /* UserDefaultKey.swift */,
+				D94599E122F44A9F00F77B14 /* Error */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -172,10 +183,33 @@
 			children = (
 				D94599C122F31CC700F77B14 /* NetworkManager.swift */,
 				D94599C322F3251500F77B14 /* DarkSkyForecastModel.swift */,
-				D94599D322F4247C00F77B14 /* NetworkError.swift */,
-				D94599D522F428AF00F77B14 /* DarkSkyAPI.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		D94599E122F44A9F00F77B14 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				D94599D322F4247C00F77B14 /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		D94599E222F44B0B00F77B14 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D922122522F1F0C800DAC2F2 /* RegionWeatherViewController.swift */,
+				D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */,
+				D9AF425522F18F93008696F0 /* RegionWeather.storyboard */,
+				D922120622F1A19500DAC2F2 /* RegionWeatherHeaderView.swift */,
+				D922120822F1A1A700DAC2F2 /* RegionWeatherHeaderView.xib */,
+				D922121F22F1C99F00DAC2F2 /* HoursWeatherCollectionView.swift */,
+				D922121B22F1C5EF00DAC2F2 /* HoursWeatherCollectionViewCell.swift */,
+				D922121C22F1C5EF00DAC2F2 /* HoursWeatherCollectionViewCell.xib */,
+				D922120E22F1B6D100DAC2F2 /* RegionWeatherTableViewCell.swift */,
+				D922120F22F1B6D100DAC2F2 /* RegionWeatherTableViewCell.xib */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		D9AF424522F18F93008696F0 = {
@@ -235,12 +269,13 @@
 			children = (
 				D922122922F2CF3E00DAC2F2 /* MainViewController.swift */,
 				D922122722F2CF1B00DAC2F2 /* Main.storyboard */,
+				D94599BC22F3173900F77B14 /* CustomLocationManager.swift */,
 				D922122B22F2CFFE00DAC2F2 /* MainTableViewCell.swift */,
 				D922122C22F2CFFE00DAC2F2 /* MainTableViewCell.xib */,
 				D922123122F2D56100DAC2F2 /* MainTableFooterView.swift */,
 				D922123322F2D56F00DAC2F2 /* MainTableFooterView.xib */,
 				D922123B22F2E6DB00DAC2F2 /* AddRegion */,
-				D94599BC22F3173900F77B14 /* CustomLocationManager.swift */,
+				D94599ED22F46BF700F77B14 /* RegionInformation.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -248,16 +283,9 @@
 		D9AF427322F19698008696F0 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				D922122522F1F0C800DAC2F2 /* RegionWeatherViewController.swift */,
-				D9AF425322F18F93008696F0 /* OldRegionWeatherViewController.swift */,
-				D9AF425522F18F93008696F0 /* RegionWeather.storyboard */,
-				D922120622F1A19500DAC2F2 /* RegionWeatherHeaderView.swift */,
-				D922120822F1A1A700DAC2F2 /* RegionWeatherHeaderView.xib */,
-				D922121F22F1C99F00DAC2F2 /* HoursWeatherCollectionView.swift */,
-				D922121B22F1C5EF00DAC2F2 /* HoursWeatherCollectionViewCell.swift */,
-				D922121C22F1C5EF00DAC2F2 /* HoursWeatherCollectionViewCell.xib */,
-				D922120E22F1B6D100DAC2F2 /* RegionWeatherTableViewCell.swift */,
-				D922120F22F1B6D100DAC2F2 /* RegionWeatherTableViewCell.xib */,
+				D94599E322F44B3C00F77B14 /* WeatherContainerViewController.swift */,
+				D94599E522F4519D00F77B14 /* WeatherContainer.storyboard */,
+				D94599E222F44B0B00F77B14 /* Detail */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -344,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D922122822F2CF1B00DAC2F2 /* Main.storyboard in Resources */,
+				D94599E622F4519D00F77B14 /* WeatherContainer.storyboard in Resources */,
 				D922121122F1B6D100DAC2F2 /* RegionWeatherTableViewCell.xib in Resources */,
 				D922120922F1A1A700DAC2F2 /* RegionWeatherHeaderView.xib in Resources */,
 				D9AF425C22F18F94008696F0 /* LaunchScreen.storyboard in Resources */,
@@ -386,10 +415,12 @@
 				D922121622F1BD8F00DAC2F2 /* Reusable+Extension.swift in Sources */,
 				D922121A22F1C0F600DAC2F2 /* UINib.swift in Sources */,
 				D94599BD22F3173900F77B14 /* CustomLocationManager.swift in Sources */,
+				D94599E422F44B3C00F77B14 /* WeatherContainerViewController.swift in Sources */,
 				D922121022F1B6D100DAC2F2 /* RegionWeatherTableViewCell.swift in Sources */,
 				D94599CF22F3489000F77B14 /* AddRegionTableViewCell.swift in Sources */,
 				D922123622F2E60700DAC2F2 /* MainTableFooterViewDelegate.swift in Sources */,
 				D922120722F1A19500DAC2F2 /* RegionWeatherHeaderView.swift in Sources */,
+				D94599EE22F46BF700F77B14 /* RegionInformation.swift in Sources */,
 				D94599D622F428AF00F77B14 /* DarkSkyAPI.swift in Sources */,
 				D9AF425422F18F93008696F0 /* OldRegionWeatherViewController.swift in Sources */,
 				D94599C622F3379900F77B14 /* Date+TimeZone.swift in Sources */,
@@ -398,6 +429,7 @@
 				D94599E022F4489900F77B14 /* Double+TemparatureDegree.swift in Sources */,
 				D922121822F1BE6B00DAC2F2 /* UITableView+Reusable.swift in Sources */,
 				D922123A22F2E6C700DAC2F2 /* AddRegionViewController.swift in Sources */,
+				D94599EC22F46AFE00F77B14 /* UserDefaultKey.swift in Sources */,
 				D922121D22F1C5EF00DAC2F2 /* HoursWeatherCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

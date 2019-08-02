@@ -20,9 +20,11 @@ class NetworkManager {
     ///
     /// - Parameters:
     ///   - location: 검색할 지역의 위치
-    ///   - completion: 응답 클로저
-    func requestWeather(with location: CLLocationCoordinate2D, completion: @escaping (_ data: DarkSkyForecaseModel?, _ err: NetworkError?) -> Void) {
-        guard let url = DarkSkyAPI.weather(String(location.latitude), String(location.longitude)).requestURL else {
+    ///   - completion: 응답 클로저 longitude latitude
+    func requestWeather(_ latitude: Double,
+                        _ longitude: Double,
+                        completion: @escaping (_ data: DarkSkyForecastModel?, _ err: NetworkError?) -> Void) {
+        guard let url = DarkSkyAPI.weather(String(latitude), String(longitude)).requestURL else {
             completion(nil,.failToURLWithLocation)
             return
         }
@@ -39,7 +41,7 @@ class NetworkManager {
             }
             
             do {
-                let weatherData = try JSONDecoder().decode(DarkSkyForecaseModel.self, from: data)
+                let weatherData = try JSONDecoder().decode(DarkSkyForecastModel.self, from: data)
                 completion(weatherData,nil)
             } catch {
                 completion(nil,.jsonParsingError)

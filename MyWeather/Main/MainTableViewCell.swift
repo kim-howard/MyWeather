@@ -26,7 +26,7 @@ class MainTableViewCell: UITableViewCell, Reusable {
         regionNameLabel.text = name
     }
     
-    func configure(_ item: DarkSkyForecaseModel) {
+    func configure(_ item: DarkSkyForecastModel) {
         if let timeZone = TimeZone(identifier: item.timezone) {
             timeLabel.text = Date(timeIntervalSince1970: TimeInterval(item.currently.time)).userTime(timeZone)
         }

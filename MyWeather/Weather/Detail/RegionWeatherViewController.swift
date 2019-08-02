@@ -14,6 +14,7 @@
 // 하단 50
 
 import UIKit
+import MapKit
 
 // TODO: TableView section 3개 있어야 한다. 셀도 3개
 class RegionWeatherViewController: UIViewController {
@@ -21,13 +22,23 @@ class RegionWeatherViewController: UIViewController {
     // MARK: - IBOutlet
     
     @IBOutlet weak var nowTemparatureLabel: UILabel!
+    // TodayInfo -> tag 0: weekDay, tag1 : today, tag2: Max, tag3: Min
     @IBOutlet weak var todayInfoView: UIView!
     @IBOutlet weak var infoPerHourView: UIView!
     @IBOutlet weak var wrapperScrollView: UIScrollView!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var nowIndexLabel: UILabel!
+    @IBOutlet weak var totalCountLabel: UILabel!
+    @IBOutlet weak var listButton: UIButton! {
+        didSet {
+            listButton.addTarget(self, action: #selector(didTapListButton(_:)), for: .touchUpInside)
+        }
+    }
+    
+    var mapItem: MKMapItem!
+    var pageIndex: Int!
     
     lazy var infoPerHourCollectionView: HoursWeatherCollectionView = {
        let collectionView = HoursWeatherCollectionView(frame: CGRect.zero)
@@ -43,6 +54,12 @@ class RegionWeatherViewController: UIViewController {
         setScrollView()
         collectionViewForHourView()
         setTableView()
+        setContent()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // request
     }
     
     // MARK: - Method
@@ -73,7 +90,6 @@ class RegionWeatherViewController: UIViewController {
     /// offset 0 -> alpha 1 , offset 50 - > alpha 0
     /// - Parameter scrollOffsetY: offset of scrollview
     private func todayInfoAlpha(_ scrollOffsetY: CGFloat) {
-        
         var scrollAlpha: CGFloat {
             if scrollOffsetY <= 0 {
                 return 1
@@ -81,11 +97,19 @@ class RegionWeatherViewController: UIViewController {
                 return (50.0 - wrapperScrollView.contentOffset.y) / 50
             }
         }
-        
         nowTemparatureLabel.alpha = scrollAlpha
         todayInfoView.alpha = scrollAlpha
     }
-
+    
+    private func setContent() {
+        
+    }
+    
+    // MARK: - objc
+    
+    @objc private func didTapListButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITableViewDataSource

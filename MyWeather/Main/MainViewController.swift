@@ -7,13 +7,15 @@
 //
 
 import UIKit
-import CoreLocation
+import MapKit
 
 class MainViewController: UIViewController {
 
     // MARK: - IBOutlet
     
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Property
     
     lazy var footerView: MainTableFooterView = {
         guard let nibView: MainTableFooterView =
@@ -22,16 +24,15 @@ class MainViewController: UIViewController {
         nibView.delegate = self
         return nibView
     }()
-    
-    var customLocationManager = CustomLocationManager()
+    let customLocationManager = CustomLocationManager()
     let networkManager = NetworkManager()
+    var locationList: [(item: MKMapItem, apiModel: DarkSkyForecaseModel)] = []
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
-        networkManager.requestWeather()
     }
     
     // MARK: - Method
@@ -65,13 +66,20 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return locationList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reusableIdentifier) as? MainTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reusableIdentifier, for: indexPath) as? MainTableViewCell else {
             return UITableViewCell()
         }
+        let locationInfo = locationList[indexPath.row]
+        
+        if let name = locationInfo.item.name {
+            cell.configure(name)
+        }
+        
+        cell.configure(locationInfo.apiModel)
         return cell
     }
     
@@ -106,9 +114,38 @@ extension MainViewController: CLLocationManagerDelegate {
     }
 }
 
+// MARK: - AddRegionDelegate
+
 extension MainViewController: AddRegionDelegate {
     // 검색한 결과를 받는다.
-    func addRegion(_ location: CLLocationCoordinate2D) {
-        print(location)
+    func addRegion(_ item: MKMapItem) {
+        let coordinate = item.placemark.coordinate
+        
+        // locale 값에 따라서 언어가 변경된다.
+//        print("name : \(item.name)")
+//        print("placemark title : \(item.placemark.title)")
+        
+        
+        networkManager.requestWeather(with: coordinate) { [weak self] (data, err) in
+            guard let self = self else { return }
+            if let error = err {
+                // TODO: Error Handling
+                let alertController = UIAlertController(title: "Fail To Request", message: error.alertMessage, preferredStyle: .alert)
+                self.present(alertController, animated: true)
+            }
+
+            guard let data = data else {
+                return
+            }
+            
+            self.locationList.append((item: item, apiModel: data))
+            DispatchQueue.main.async {
+                self.tableView.beginUpdates()
+                // TODO: Section change
+                self.tableView.insertRows(at: [IndexPath(row: self.locationList.count-1, section: 0)], with: .automatic)
+                self.tableView.endUpdates()
+            }
+            
+        }
     }
 }

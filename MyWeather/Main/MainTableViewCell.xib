@@ -84,10 +84,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="locationImage" destination="74Y-88-vlE" id="VBI-WZ-IfS"/>
-                <outlet property="locationLabel" destination="hLI-1e-Vif" id="SS4-eT-84v"/>
-                <outlet property="nowTemparatireLabel" destination="hLI-1e-Vif" id="zhj-YT-Qxy"/>
+                <outlet property="nowTemparatireLabel" destination="FA7-8F-83l" id="hNY-8Q-wFt"/>
+                <outlet property="regionNameLabel" destination="hLI-1e-Vif" id="OGc-CZ-h1f"/>
                 <outlet property="timeLabel" destination="dO6-fZ-GzE" id="qhy-cU-Sut"/>
+                <outlet property="userLocationImage" destination="74Y-88-vlE" id="VBI-WZ-IfS"/>
             </connections>
             <point key="canvasLocation" x="46.376811594202906" y="45.870535714285715"/>
         </tableViewCell>

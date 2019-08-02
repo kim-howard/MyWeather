@@ -189,8 +189,11 @@ extension AddRegionViewController: UITableViewDataSource {
 
 extension AddRegionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let individualItem = searchedItems?[indexPath.row] else {return}
-        delegate?.addRegion(individualItem.placemark.coordinate)
+        if let individualItem = searchedItems?[indexPath.row] {
+            delegate?.addRegion(individualItem)
+        } else {
+            // TODO: Error
+        }
         self.dismiss(animated: true, completion: nil)
     }
 }

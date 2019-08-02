@@ -12,20 +12,32 @@ class MainTableViewCell: UITableViewCell, Reusable {
 
     @IBOutlet weak var timeLabel: UILabel!
     // default isHidden = true
-    @IBOutlet weak var locationImage: UIImageView!
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var userLocationImage: UIImageView!
+    @IBOutlet weak var regionNameLabel: UILabel!
     @IBOutlet weak var nowTemparatireLabel: UILabel!
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        userLocationImage.isHidden = true
     }
     
+    func configure(_ name: String) {
+        regionNameLabel.text = name
+    }
+    
+    func configure(_ item: DarkSkyForecaseModel) {
+        if let timeZone = TimeZone(identifier: item.timezone) {
+            timeLabel.text = Date(timeIntervalSince1970: TimeInterval(item.currently.time)).userTime(timeZone)
+        }
+        let temparature = item.currently.temperature.switchDegree(.celsius)
+        nowTemparatireLabel.text = String(temparature).markTemparature()
+    }
+    
+    func configure(_ isUserLocation: Bool) {
+        if isUserLocation {
+            userLocationImage.isHidden = false
+            // image 적용
+        }
+    }
 }

@@ -170,7 +170,9 @@ extension MainViewController: AddRegionDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let coordinate = item.placemark.coordinate
         networkManager.requestWeather(coordinate.latitude, coordinate.longitude) { [weak self] (data, err) in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
             guard let self = self else { return }
             if let error = err {
                 let alertController = UIAlertController(title: "요청에 실패하였습니다.", message: error.alertMessage, preferredStyle: .alert)

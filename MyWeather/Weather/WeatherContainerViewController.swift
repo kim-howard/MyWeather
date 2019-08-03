@@ -14,6 +14,9 @@ class WeatherContainerViewController: UIPageViewController {
     var initialIndex = 0
     // TODO: pages Logic
     var pageSources: [RegionInformation]!
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     private var nowPageIndex = 0
     private lazy var pageViewControllers: [UIViewController?] = {
         return Array<RegionWeatherViewController?>(repeating: nil, count: pageSources.count)
@@ -36,7 +39,9 @@ class WeatherContainerViewController: UIPageViewController {
             fatalError("fail to instantiate RegionWeather")
         }
         // TODO: MapItem
-//        viewController.mapItem = pageSources[index]
+        viewController.pageIndex = index + 1
+        viewController.totalIndex = pageSources.count
+        viewController.weatherInformation = pageSources[index]
         pageViewControllers[index] = viewController
         return viewController
     }

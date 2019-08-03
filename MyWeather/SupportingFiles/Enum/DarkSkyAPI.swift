@@ -34,6 +34,7 @@ enum DarkSkyAPI: APIBase {
     
     var query: String? {
         return "lang=ko&exclude=[minutely,alerts,flags]"
+//        return "exclude=[minutely,alerts,flags]"
     }
     
     var requestURL: URL? {
@@ -44,7 +45,7 @@ enum DarkSkyAPI: APIBase {
             component.path = path
         }
         if let query = self.query {
-            component.query = self.query
+            component.query = query
         }
         return component.url
     }

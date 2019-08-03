@@ -18,16 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="70" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 11시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccj-7W-ReS">
-                        <rect key="frame" x="3" y="0.0" width="64" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 11:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccj-7W-ReS">
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTB-cx-DPM">
-                        <rect key="frame" x="23.5" y="21" width="23.5" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ehk-Xt-CsL">
@@ -37,8 +31,8 @@
                             <constraint firstAttribute="width" constant="40" id="p9x-Fy-N7m"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUM-tE-1uJ">
-                        <rect key="frame" x="21.5" y="99" width="27" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUM-tE-1uJ">
+                        <rect key="frame" x="0.0" y="99" width="70" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -49,18 +43,20 @@
                 <constraint firstItem="ehk-Xt-CsL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="2uP-qQ-lHM"/>
                 <constraint firstItem="SUM-tE-1uJ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="9OU-W7-2M9"/>
                 <constraint firstAttribute="bottom" secondItem="SUM-tE-1uJ" secondAttribute="bottom" id="BLG-dU-qbh"/>
-                <constraint firstItem="zTB-cx-DPM" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Rbk-s6-cSM"/>
+                <constraint firstAttribute="trailing" secondItem="ccj-7W-ReS" secondAttribute="trailing" id="Tcv-IR-GtS"/>
+                <constraint firstItem="SUM-tE-1uJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Y1v-3e-LzV"/>
                 <constraint firstItem="ccj-7W-ReS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dms-GO-KnL"/>
+                <constraint firstItem="ccj-7W-ReS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eEK-g0-MN9"/>
                 <constraint firstItem="ccj-7W-ReS" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gXa-2K-nXx"/>
-                <constraint firstItem="zTB-cx-DPM" firstAttribute="top" secondItem="ccj-7W-ReS" secondAttribute="bottom" id="qMu-qz-FIZ"/>
+                <constraint firstAttribute="trailing" secondItem="SUM-tE-1uJ" secondAttribute="trailing" id="gdt-0J-7Pm"/>
                 <constraint firstItem="ehk-Xt-CsL" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="zzk-KS-79Y"/>
             </constraints>
             <connections>
-                <outlet property="rainyLabel" destination="zTB-cx-DPM" id="Mlu-9m-ghh"/>
                 <outlet property="temparatureLabel" destination="SUM-tE-1uJ" id="sYC-3p-fb7"/>
                 <outlet property="timeLabel" destination="ccj-7W-ReS" id="Rb2-U1-HMi"/>
                 <outlet property="weatherIcon" destination="ehk-Xt-CsL" id="ePe-8C-LMw"/>
             </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </collectionViewCell>
     </objects>
 </document>

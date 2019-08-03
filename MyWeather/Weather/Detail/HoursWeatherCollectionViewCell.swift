@@ -13,18 +13,17 @@ import UIKit
 class HoursWeatherCollectionViewCell: UICollectionViewCell, Reusable {
     
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var rainyLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var temparatureLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // 강수량이 없는 경우 보이지 않는다.
-        rainyLabel.isHidden = true
     }
     
-    func setRainPercent() {
-        // if else ishidden
+    func configure(_ hourInfo: Currently, _ timezoneIdentifier: String) {
+        timeLabel.text = Date(timeIntervalSince1970: TimeInterval(hourInfo.time)).userTime(timezoneIdentifier)
+        weatherIcon.image = WeatherStatus(hourInfo.icon).icon
+        temparatureLabel.text = String(hourInfo.temperature.switchDegree(.celsius)).markTemparature()
     }
 
 }

@@ -20,9 +20,7 @@ struct DarkSkyForecastModel: Codable {
 
 struct Currently: Codable {
     let time: Int
-//    let summary: Summary
     let summary: String
-//    let icon: Icon
     let icon: String
     let nearestStormDistance, nearestStormBearing: Int?
     let precipIntensity, precipProbability, temperature, apparentTemperature: Double
@@ -35,26 +33,9 @@ struct Currently: Codable {
     let precipType: String?
 }
 
-// clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
-// 나중에 다른 것이 추가될 수도 있다. thunder ... 등등
-// TODO: Icon
-//enum Icon: String, Codable {
-//    case clearDay = "clear-day"
-//    case partlyCloudyDay = "partly-cloudy-day"
-//    case partlyCloudyNight = "partly-cloudy-night"
-//}
-
-// TODO: Summary
-//enum Summary: String, Codable {
-//    case clear = "Clear"
-//    case mostlyCloudy = "Mostly Cloudy"
-//    case partlyCloudy = "Partly Cloudy"
-//}
-
 // MARK: - Daily
 struct Daily: Codable {
     let summary: String
-    //    let icon: Icon
     let icon: String
     let data: [Datum]
 }
@@ -63,7 +44,6 @@ struct Daily: Codable {
 struct Datum: Codable {
     let time: Int
     let summary: String
-    //    let icon: Icon
     let icon: String
     let sunriseTime, sunsetTime: Int
     let moonPhase, precipIntensity, precipIntensityMax: Double
@@ -96,7 +76,6 @@ struct Datum: Codable {
 // MARK: - Hourly
 struct Hourly: Codable {
     let summary: String
-//    let icon: Icon
     let icon: String
     let data: [Currently]
 }

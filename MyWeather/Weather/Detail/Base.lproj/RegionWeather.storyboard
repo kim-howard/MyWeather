@@ -271,9 +271,11 @@
                     <connections>
                         <outlet property="infoPerHourView" destination="pk9-tN-x8v" id="XTL-fH-6fV"/>
                         <outlet property="listButton" destination="hiT-3O-HYQ" id="TIZ-Jg-W1n"/>
+                        <outlet property="nameLabel" destination="YMD-5w-1GV" id="OIw-r2-qIj"/>
                         <outlet property="nowIndexLabel" destination="Kcd-hz-1dn" id="Mhj-e5-2xV"/>
                         <outlet property="nowTemparatureLabel" destination="b35-uk-aNZ" id="9fN-Ur-Fwq"/>
                         <outlet property="scrollContentView" destination="q81-2F-t66" id="s6V-hh-CFF"/>
+                        <outlet property="summaryLabel" destination="NSx-ib-hgH" id="0ZF-3p-yJp"/>
                         <outlet property="tableView" destination="XQT-eV-K9K" id="h1b-9b-g3U"/>
                         <outlet property="tableViewHeight" destination="ZNF-Mk-vWG" id="3OP-oj-k89"/>
                         <outlet property="todayInfoView" destination="G0R-BG-tSj" id="iBq-bs-Mbl"/>

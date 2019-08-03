@@ -10,10 +10,24 @@ import Foundation
 
 extension Date {
     // PM 07:00 or 오후 10:12
-    func userTime(_ timezone: TimeZone) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "a HH:mm"
-        dateFormatter.timeZone = timezone
-        return dateFormatter.string(from: self)
+    func userTime(_ timezoneIdentifier: String) -> String {
+        if let timeZone = TimeZone(identifier: timezoneIdentifier) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "a HH:mm"
+            dateFormatter.timeZone = timeZone
+            return dateFormatter.string(from: self)
+        }
+        return ""
+    }
+    
+    // 목요일 Thursday
+    func weekDay(_ timezoneIdentifier: String) -> String {
+        if let timeZone = TimeZone(identifier: timezoneIdentifier) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE"
+            dateFormatter.timeZone = timeZone
+            return dateFormatter.string(from: self)
+        }
+        return ""
     }
 }

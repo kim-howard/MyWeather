@@ -21,6 +21,8 @@ class RegionWeatherViewController: UIViewController {
     
     // MARK: - IBOutlet
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var nowTemparatureLabel: UILabel!
     // TodayInfo -> tag 0: weekDay, tag1 : today, tag2: Max, tag3: Min
     @IBOutlet weak var todayInfoView: UIView!
@@ -37,15 +39,29 @@ class RegionWeatherViewController: UIViewController {
         }
     }
     
-    var mapItem: MKMapItem!
+    // MARK: - Property
+    
     var pageIndex: Int!
+    var totalIndex: Int!
+    var weatherInformation: RegionInformation!
     
     lazy var infoPerHourCollectionView: HoursWeatherCollectionView = {
        let collectionView = HoursWeatherCollectionView(frame: CGRect.zero)
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
        return collectionView
     }()
+    
+    lazy var hourlyInformation: [Currently] = {
+        return weatherInformation.weatherInfo.hourly.data
+    }()
+    
+    // TODO: Struct
+//    private struct WeatherDetailString {
+//
+//    }
     
     // MARK: - LifeCycle
     
@@ -102,7 +118,24 @@ class RegionWeatherViewController: UIViewController {
     }
     
     private func setContent() {
-        
+        let currentlyInfo = weatherInformation.weatherInfo.currently
+        let today = weatherInformation.weatherInfo.daily.data.first!
+        nameLabel.text = weatherInformation.name
+        summaryLabel.text = currentlyInfo.summary
+        nowTemparatureLabel.text = String(currentlyInfo.temperature.switchDegree(.celsius)).markTemparature()
+        todayInfoView.subviews.forEach { subView in
+            guard let label = subView as? UILabel else { return }
+            if subView.tag == 0 { // 요일
+                let todayDate = Date(timeIntervalSince1970: TimeInterval(today.time))
+                label.text = todayDate.weekDay(weatherInformation.weatherInfo.timezone)
+            } else if subView.tag == 1 { // 오늘
+                label.text = "Today"
+            } else if subView.tag == 2 { // max
+                label.text = String(today.temperatureMax.switchDegree(.celsius))
+            } else if subView.tag == 3 { // min
+                label.text = String(today.temperatureMin.switchDegree(.celsius))
+            }
+        }
     }
     
     // MARK: - objc
@@ -160,5 +193,41 @@ extension RegionWeatherViewController: UIScrollViewDelegate {
         }
     }
 }
+
+// MARK: - UICollectionViewDataSource
+
+extension RegionWeatherViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return hourlyInformation.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HoursWeatherCollectionViewCell", for: indexPath) as? HoursWeatherCollectionViewCell else {
+            fatalError("dequeue collection View Fail")
+        }
+        cell.configure(hourlyInformation[indexPath.row], weatherInformation.weatherInfo.timezone)
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension RegionWeatherViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 70, height: 110)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5.0, left: 0.0, bottom: 5.0, right: 0.0)
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension RegionWeatherViewController: UICollectionViewDelegate {
+    
+}
+
 
 

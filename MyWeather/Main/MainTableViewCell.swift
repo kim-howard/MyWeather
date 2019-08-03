@@ -27,9 +27,7 @@ class MainTableViewCell: UITableViewCell, Reusable {
     }
     
     func configure(_ item: DarkSkyForecastModel) {
-        if let timeZone = TimeZone(identifier: item.timezone) {
-            timeLabel.text = Date(timeIntervalSince1970: TimeInterval(item.currently.time)).userTime(timeZone)
-        }
+        timeLabel.text = Date(timeIntervalSince1970: TimeInterval(item.currently.time)).userTime(item.timezone)
         let temparature = item.currently.temperature.switchDegree(.celsius)
         nowTemparatireLabel.text = String(temparature).markTemparature()
     }

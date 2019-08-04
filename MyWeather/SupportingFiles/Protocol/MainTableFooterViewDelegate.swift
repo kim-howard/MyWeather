@@ -9,5 +9,6 @@
 import Foundation
 
 protocol MainTableFooterViewDelegate: class {
+    func didTapTemparatureDegreeButton()
     func didTapPlusButton()
 }

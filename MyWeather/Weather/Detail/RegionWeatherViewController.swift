@@ -42,6 +42,13 @@ class RegionWeatherViewController: UIViewController {
     
     // MARK: - Property
     
+    var userCelsiusPreference: Bool = {
+        guard let sharedAppDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("AppDelegate Error")
+        }
+        return sharedAppDelegate.isUserPreferCelsius
+    }()
+    
     var pageIndex: Int!
     var totalIndex: Int!
     var regionInformation: RegionInformation!
@@ -140,7 +147,12 @@ class RegionWeatherViewController: UIViewController {
         backgroundImage.image = WeatherStatus(currentlyInfo.icon).backgroundImage
         nameLabel.text = regionInformation.name
         summaryLabel.text = currentlyInfo.summary
-        nowTemparatureLabel.text = String(currentlyInfo.temperature.switchDegree(.celsius)).markTemparature()
+        if userCelsiusPreference {
+            nowTemparatureLabel.text = String(currentlyInfo.temperature.switchDegree(.celsius)).markTemparature()
+        } else {
+            nowTemparatureLabel.text = String(Int(currentlyInfo.temperature)).markTemparature()
+        }
+        
         todayInfoView.subviews.forEach { subView in
             guard let label = subView as? UILabel else { return }
             if subView.tag == 0 { // 요일
@@ -149,9 +161,17 @@ class RegionWeatherViewController: UIViewController {
             } else if subView.tag == 1 { // 오늘
                 label.text = "Today"
             } else if subView.tag == 2 { // max
-                label.text = String(today.temperatureMax.switchDegree(.celsius))
+                if userCelsiusPreference {
+                    label.text = String(today.temperatureMax.switchDegree(.celsius))
+                } else {
+                    label.text = String(Int(today.temperatureMax))
+                }
             } else if subView.tag == 3 { // min
-                label.text = String(today.temperatureMin.switchDegree(.celsius))
+                if userCelsiusPreference {
+                    label.text = String(today.temperatureMin.switchDegree(.celsius))
+                } else {
+                    label.text = String(Int(today.temperatureMin))
+                }
             }
         }
         nowIndexLabel.text = String(pageIndex)
@@ -169,7 +189,7 @@ class RegionWeatherViewController: UIViewController {
 
 extension RegionWeatherViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hourlyInformation.count
+        return 24
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

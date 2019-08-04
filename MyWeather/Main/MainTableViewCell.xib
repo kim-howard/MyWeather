@@ -19,6 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="318" height="74.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy-image" translatesAutoresizingMaskIntoConstraints="NO" id="m94-Oq-GGf">
+                        <rect key="frame" x="0.0" y="0.0" width="318" height="74.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tmU-Bo-Lgl">
+                        <rect key="frame" x="0.0" y="0.0" width="318" height="74.5"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhH-bB-FqJ">
                         <rect key="frame" x="12" y="11.5" width="80" height="51.5"/>
                         <subviews>
@@ -28,7 +36,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO6-fZ-GzE">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="74Y-88-vlE">
@@ -39,7 +47,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="dO6-fZ-GzE" firstAttribute="leading" secondItem="q2p-1P-OyX" secondAttribute="leading" id="RQx-ZI-Tc7"/>
                                     <constraint firstItem="dO6-fZ-GzE" firstAttribute="top" secondItem="q2p-1P-OyX" secondAttribute="top" id="T2w-AR-pOY"/>
@@ -53,11 +61,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동작구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLI-1e-Vif">
                                 <rect key="frame" x="0.0" y="20" width="80" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="q2p-1P-OyX" firstAttribute="top" secondItem="MhH-bB-FqJ" secondAttribute="top" id="3YV-2u-Xl7"/>
                             <constraint firstAttribute="bottom" secondItem="hLI-1e-Vif" secondAttribute="bottom" id="MeN-wT-7cD"/>
@@ -71,19 +79,28 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA7-8F-83l">
                         <rect key="frame" x="229" y="7.5" width="77" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="tmU-Bo-Lgl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5UG-mW-LKI"/>
                     <constraint firstItem="MhH-bB-FqJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8Kp-rW-MS8"/>
+                    <constraint firstAttribute="bottom" secondItem="tmU-Bo-Lgl" secondAttribute="bottom" id="GAk-bP-yrM"/>
                     <constraint firstItem="MhH-bB-FqJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Huq-AN-cOA"/>
+                    <constraint firstAttribute="trailing" secondItem="m94-Oq-GGf" secondAttribute="trailing" id="IXb-Df-xws"/>
                     <constraint firstItem="FA7-8F-83l" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Kjr-8b-Nvg"/>
+                    <constraint firstItem="m94-Oq-GGf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MuT-sG-jGr"/>
+                    <constraint firstItem="m94-Oq-GGf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ZS4-Z2-dip"/>
+                    <constraint firstAttribute="trailing" secondItem="tmU-Bo-Lgl" secondAttribute="trailing" id="d0r-wL-BI8"/>
+                    <constraint firstItem="tmU-Bo-Lgl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="enA-h3-zNZ"/>
+                    <constraint firstAttribute="bottom" secondItem="m94-Oq-GGf" secondAttribute="bottom" id="uEA-hg-QKI"/>
                     <constraint firstAttribute="trailing" secondItem="FA7-8F-83l" secondAttribute="trailing" constant="12" id="yrr-Xo-0gb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="backgroundImage" destination="m94-Oq-GGf" id="hMy-jU-LsC"/>
                 <outlet property="nowTemparatireLabel" destination="FA7-8F-83l" id="hNY-8Q-wFt"/>
                 <outlet property="regionNameLabel" destination="hLI-1e-Vif" id="OGc-CZ-h1f"/>
                 <outlet property="timeLabel" destination="dO6-fZ-GzE" id="qhy-cU-Sut"/>
@@ -92,4 +109,7 @@
             <point key="canvasLocation" x="46.376811594202906" y="45.870535714285715"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cloudy-image" width="750" height="1334"/>
+    </resources>
 </document>

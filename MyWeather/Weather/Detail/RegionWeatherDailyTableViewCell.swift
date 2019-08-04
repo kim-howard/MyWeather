@@ -18,7 +18,15 @@ class RegionWeatherDailyTableViewCell: UITableViewCell, Reusable {
     func configure(_ dayInfo: Datum, _ timezoneIdentifier: String) {
         weekDayLabel.text = Date(timeIntervalSince1970: TimeInterval(dayInfo.time)).weekDay(timezoneIdentifier)
         iconImage.image = WeatherStatus(dayInfo.icon).icon
-        maxTemparatureLabel.text = String(dayInfo.temperatureHigh.switchDegree(.celsius))
-        minTemparatureLabel.text = String(dayInfo.temperatureMin.switchDegree(.celsius))
+        if let sharedAppDelegate = UIApplication.shared.delegate as? AppDelegate,
+            sharedAppDelegate.isUserPreferCelsius
+        {
+            maxTemparatureLabel.text = String(dayInfo.temperatureHigh.switchDegree(.celsius))
+            minTemparatureLabel.text = String(dayInfo.temperatureMin.switchDegree(.celsius))
+        } else {
+            maxTemparatureLabel.text = String(Int(dayInfo.temperatureHigh))
+            minTemparatureLabel.text = String(Int(dayInfo.temperatureMin))
+        }
+        
     }
 }

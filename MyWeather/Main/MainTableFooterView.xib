@@ -68,7 +68,7 @@
                 <outlet property="fahrenheitButton" destination="c1q-Uj-pol" id="Pwl-id-8xc"/>
                 <outlet property="plusButton" destination="16W-pv-q3W" id="rf7-SW-ohz"/>
             </connections>
-            <point key="canvasLocation" x="62" y="-259"/>
+            <point key="canvasLocation" x="27" y="-188"/>
         </view>
     </objects>
     <resources>

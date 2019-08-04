@@ -12,10 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    // Custom
+    var isUserPreferCelsius: Bool! {
+        didSet {
+            UserDefaults.standard.set(isUserPreferCelsius, forKey: UserDefaultKey.isCelsius.rawValue)
+            UserDefaults.standard.synchronize()
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Celsius Check
+        if let userCelsiusPreferenceValue = UserDefaults.standard.object(forKey: UserDefaultKey.isCelsius.rawValue) as? Bool {
+            isUserPreferCelsius = userCelsiusPreferenceValue
+        } else {
+            isUserPreferCelsius = true
+        }
         return true
     }
 

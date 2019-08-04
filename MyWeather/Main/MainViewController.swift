@@ -45,6 +45,7 @@ class MainViewController: UIViewController {
     private func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         registerTableViewCell()
         tableViewFooterview()
     }
@@ -52,7 +53,6 @@ class MainViewController: UIViewController {
     private func registerTableViewCell() {
         tableView.registerReusableCell(MainTableViewCell.self)
     }
-    
     
     private func tableViewFooterview() {
         let footerViewWrapper = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50.0))
@@ -133,17 +133,23 @@ extension MainViewController: UITableViewDelegate {
             guard let self = self else { return }
             self.regionInformations.remove(at: indexPath.row)
             self.synchronizeUserDefault()
+            self.tableView.reloadData()
             success(true)
         }
         let configuration = UISwipeActionsConfiguration(actions: [delete])
         return configuration
-        
     }
 }
 
 // MARK: - MainTableFooterViewDelegate
 
 extension MainViewController: MainTableFooterViewDelegate {
+    
+    // update label
+    func didTapTemparatureDegreeButton() {
+        tableView.reloadData()
+    }
+    
     func didTapPlusButton() {
         guard let addResionViewController =
             UIStoryboard(name: "AddRegion", bundle: nil).instantiateInitialViewController() as? AddRegionViewController
@@ -185,13 +191,13 @@ extension MainViewController: AddRegionDelegate {
                                                         latitude: item.placemark.coordinate.latitude,
                                                         longitude: item.placemark.coordinate.longitude,
                                                         weatherInfo: data!)
-            self.regionInformations.append(newRegionInformation)
-            self.synchronizeUserDefault()
             // UIUpdate
             DispatchQueue.main.async {
                 self.tableView.beginUpdates()
                 // TODO: Section change
-                self.tableView.insertRows(at: [IndexPath(row: self.regionInformations.count-1, section: 0)], with: .automatic)
+                self.tableView.insertRows(at: [IndexPath(row: self.regionInformations.count, section: 0)], with: .automatic)
+                self.regionInformations.append(newRegionInformation)
+                self.synchronizeUserDefault()
                 self.tableView.endUpdates()
             }
         }

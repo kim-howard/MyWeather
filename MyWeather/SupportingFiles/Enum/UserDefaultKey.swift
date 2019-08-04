@@ -11,4 +11,5 @@ import Foundation
 enum UserDefaultKey: String {
     case temparatureDegree
     case regionInformations
+    case isCelsius
 }

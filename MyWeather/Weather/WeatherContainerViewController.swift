@@ -41,7 +41,7 @@ class WeatherContainerViewController: UIPageViewController {
         // TODO: MapItem
         viewController.pageIndex = index + 1
         viewController.totalIndex = pageSources.count
-        viewController.weatherInformation = pageSources[index]
+        viewController.regionInformation = pageSources[index]
         pageViewControllers[index] = viewController
         return viewController
     }

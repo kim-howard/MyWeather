@@ -40,4 +40,20 @@ enum WeatherStatus: String, CaseIterable {
         }
         return UIImage()
     }
+    
+    var backgroundImage: UIImage {
+        // partlyCloudyDay 처리
+        switch self {
+        case .partlyCloudyDay, .partlyCloudyNight, .cloudy:
+            if let weatherBackgroundImage = UIImage(named: "cloudy-image") {
+                return weatherBackgroundImage
+            }
+        default:
+            if let weatherBackgroundImage = UIImage(named: "\(self.rawValue)-image") {
+                return weatherBackgroundImage
+            }
+        }
+        
+        return UIImage(named: "unknown-image")!
+    }
 }

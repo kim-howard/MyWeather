@@ -16,10 +16,6 @@ class HoursWeatherCollectionViewCell: UICollectionViewCell, Reusable {
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var temparatureLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func configure(_ hourInfo: Currently, _ timezoneIdentifier: String) {
         timeLabel.text = Date(timeIntervalSince1970: TimeInterval(hourInfo.time)).userTime(timezoneIdentifier)
         weatherIcon.image = WeatherStatus(hourInfo.icon).icon

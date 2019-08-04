@@ -12,27 +12,33 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RegionWeatherTableViewCell" id="KGk-i7-Jjw" customClass="RegionWeatherTableViewCell" customModule="MyWeather" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="117" id="KGk-i7-Jjw" customClass="RegionWeatherSummaryTableViewCell" customModule="MyWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="303" height="117"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="303" height="116.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3c-wY-Cxt">
-                        <rect key="frame" x="0.0" y="11.5" width="44.5" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnx-H9-0N3">
+                        <rect key="frame" x="8" y="32" width="287" height="52.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="H3c-wY-Cxt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DJP-kV-ron"/>
-                    <constraint firstItem="H3c-wY-Cxt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="afo-q7-t6u"/>
+                    <constraint firstItem="Nnx-H9-0N3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="4JH-o9-gOK"/>
+                    <constraint firstAttribute="bottom" secondItem="Nnx-H9-0N3" secondAttribute="bottom" constant="32" id="BPb-fo-iXs"/>
+                    <constraint firstAttribute="trailing" secondItem="Nnx-H9-0N3" secondAttribute="trailing" constant="8" id="U9U-Hj-004"/>
+                    <constraint firstItem="Nnx-H9-0N3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="oHZ-v3-vVL"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="summaryLabel" destination="Nnx-H9-0N3" id="S9z-pV-1qS"/>
+            </connections>
+            <point key="canvasLocation" x="35.507246376811594" y="59.263392857142854"/>
         </tableViewCell>
     </objects>
 </document>

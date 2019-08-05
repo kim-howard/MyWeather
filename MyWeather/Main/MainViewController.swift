@@ -14,10 +14,17 @@ class MainViewController: UIViewController {
     // MARK: - IBOutlet
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingView: UIView!
     
     // MARK: - Property
     
-    lazy var footerView: MainTableFooterView = {
+    private let customLocationManager = CustomLocationManager()
+    private let networkManager = NetworkManager()
+    private let updateRegionGroup = DispatchGroup()
+    private let updateRegionQueue = DispatchQueue(label: "updateRegionQueue", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+    private var regionInformations: [RegionInformation] = []
+    
+    private lazy var footerView: MainTableFooterView = {
         guard let nibView: MainTableFooterView =
             Bundle.main.loadNibNamed("MainTableFooterView", owner: self, options: nil)?.first as? MainTableFooterView
             else { fatalError("footer nib") }
@@ -25,18 +32,17 @@ class MainViewController: UIViewController {
         return nibView
     }()
     
-    private var isInitialized: Bool = false
-    let customLocationManager = CustomLocationManager()
-    let networkManager = NetworkManager()
-    
-    var regionInformations: [RegionInformation] = []
-    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
         checkUserDefault()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateRegionDate()
     }
     
     // MARK: - Method
@@ -86,6 +92,64 @@ class MainViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private func updateRegionDate() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        loadingView.isHidden = false
+        var updatedRegionInformations = regionInformations
+        var isThereNetworkError: Bool = false
+        
+        updateRegionQueue.async { [weak self] in
+            guard let self = self else { return }
+            for (infoIndex, regionInfo) in self.regionInformations.enumerated() {
+                self.updateRegionGroup.enter()
+                self.networkManager.requestWeather(regionInfo.latitude,
+                                                   regionInfo.longitude,
+                                                   completion: { (data, error) in
+                                                    if let error = error {
+                                                        isThereNetworkError = true
+                                                        print(error.alertMessage)
+                                                        self.updateRegionGroup.leave()
+                                                        return
+                                                    }
+                                                    // Update data
+                                                    let updatedRegionInformation = RegionInformation(name: regionInfo.name,
+                                                                                                     latitude: regionInfo.latitude,
+                                                                                                     longitude: regionInfo.longitude,
+                                                                                                     weatherInfo: data!)
+                                                    updatedRegionInformations[infoIndex] = updatedRegionInformation
+                                                    self.updateRegionGroup.leave()
+                                                    
+                })
+            }
+            
+            self.updateRegionGroup.wait()
+            
+            DispatchQueue.main.async { [weak self] in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                guard let self = self else { return }
+                self.loadingView.isHidden = true
+                if isThereNetworkError {
+                    self.errorAlert("Network Error", "Fail to Request. please check Your Network")
+                } else {
+                    self.regionInformations = updatedRegionInformations
+                    self.synchronizeUserDefault()
+                    self.tableView.reloadData()
+                }
+
+            }
+            
+        }
+    }
+    
+    private func errorAlert(_ title: String, _ message: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 

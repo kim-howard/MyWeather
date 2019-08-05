@@ -22,17 +22,38 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZn-oj-tXL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ieN-Rm-vD0">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ieN-Rm-vD0" firstAttribute="top" secondItem="cZn-oj-tXL" secondAttribute="top" id="5k6-d4-MHd"/>
+                                    <constraint firstItem="ieN-Rm-vD0" firstAttribute="leading" secondItem="cZn-oj-tXL" secondAttribute="leading" id="I0j-KK-4U0"/>
+                                    <constraint firstAttribute="bottom" secondItem="ieN-Rm-vD0" secondAttribute="bottom" id="ncT-bW-vwJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="ieN-Rm-vD0" secondAttribute="trailing" id="oI4-hv-TSj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cZn-oj-tXL" firstAttribute="top" secondItem="KYs-ZH-XY2" secondAttribute="top" id="09d-Rh-JJP"/>
                             <constraint firstItem="KYs-ZH-XY2" firstAttribute="trailing" secondItem="hQq-Ll-zMS" secondAttribute="trailing" id="2I6-Vz-hSI"/>
+                            <constraint firstItem="KYs-ZH-XY2" firstAttribute="trailing" secondItem="cZn-oj-tXL" secondAttribute="trailing" id="MPH-vq-6U6"/>
                             <constraint firstAttribute="bottom" secondItem="hQq-Ll-zMS" secondAttribute="bottom" id="NNM-cs-Vnu"/>
                             <constraint firstItem="hQq-Ll-zMS" firstAttribute="top" secondItem="KYs-ZH-XY2" secondAttribute="top" id="hVt-54-hUC"/>
                             <constraint firstItem="hQq-Ll-zMS" firstAttribute="leading" secondItem="KYs-ZH-XY2" secondAttribute="leading" id="id8-cg-aUq"/>
+                            <constraint firstItem="cZn-oj-tXL" firstAttribute="leading" secondItem="KYs-ZH-XY2" secondAttribute="leading" id="vgX-id-faA"/>
+                            <constraint firstItem="KYs-ZH-XY2" firstAttribute="bottom" secondItem="cZn-oj-tXL" secondAttribute="bottom" id="ypP-1O-nXn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KYs-ZH-XY2"/>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="cZn-oj-tXL" id="tFy-bw-NRe"/>
                         <outlet property="tableView" destination="hQq-Ll-zMS" id="jcD-JH-ffC"/>
                     </connections>
                 </viewController>

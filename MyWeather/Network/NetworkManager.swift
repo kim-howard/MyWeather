@@ -13,7 +13,7 @@ import CoreLocation
 class NetworkManager {
     
     private lazy var urlSession: URLSession = {
-        return URLSession(configuration: .default)
+        return URLSession(configuration: .ephemeral)
     }()
     
     /// 위치를 통해서 날씨 데이터를 요청하는 로직
@@ -33,6 +33,7 @@ class NetworkManager {
             if let error = err {
                 print(error.localizedDescription)
                 completion(nil, .dataTaskError)
+                return
             }
             
             guard let data = data else {

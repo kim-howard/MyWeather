@@ -28,10 +28,10 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhH-bB-FqJ">
-                        <rect key="frame" x="12" y="11.5" width="80" height="51.5"/>
+                        <rect key="frame" x="12" y="11.5" width="212" height="51.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2p-1P-OyX">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="212" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO6-fZ-GzE">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="20"/>
@@ -52,14 +52,13 @@
                                     <constraint firstItem="dO6-fZ-GzE" firstAttribute="leading" secondItem="q2p-1P-OyX" secondAttribute="leading" id="RQx-ZI-Tc7"/>
                                     <constraint firstItem="dO6-fZ-GzE" firstAttribute="top" secondItem="q2p-1P-OyX" secondAttribute="top" id="T2w-AR-pOY"/>
                                     <constraint firstItem="74Y-88-vlE" firstAttribute="leading" secondItem="dO6-fZ-GzE" secondAttribute="trailing" constant="4" id="XmA-cu-uvg"/>
-                                    <constraint firstAttribute="trailing" secondItem="74Y-88-vlE" secondAttribute="trailing" id="ea9-yK-uyw"/>
                                     <constraint firstAttribute="bottom" secondItem="dO6-fZ-GzE" secondAttribute="bottom" id="tF3-ay-awE"/>
                                     <constraint firstAttribute="bottom" secondItem="74Y-88-vlE" secondAttribute="bottom" id="xhk-fH-9Kw"/>
                                     <constraint firstItem="74Y-88-vlE" firstAttribute="top" secondItem="q2p-1P-OyX" secondAttribute="top" id="ybr-ac-HDx"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동작구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLI-1e-Vif">
-                                <rect key="frame" x="0.0" y="20" width="80" height="31.5"/>
+                                <rect key="frame" x="0.0" y="20" width="212" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -76,7 +75,7 @@
                             <constraint firstAttribute="trailing" secondItem="q2p-1P-OyX" secondAttribute="trailing" id="h67-0U-sAA"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA7-8F-83l">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA7-8F-83l">
                         <rect key="frame" x="229" y="7.5" width="77" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,6 +85,7 @@
                 <constraints>
                     <constraint firstItem="tmU-Bo-Lgl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5UG-mW-LKI"/>
                     <constraint firstItem="MhH-bB-FqJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8Kp-rW-MS8"/>
+                    <constraint firstItem="hLI-1e-Vif" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="2:3" id="EdO-5y-DeT"/>
                     <constraint firstAttribute="bottom" secondItem="tmU-Bo-Lgl" secondAttribute="bottom" id="GAk-bP-yrM"/>
                     <constraint firstItem="MhH-bB-FqJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Huq-AN-cOA"/>
                     <constraint firstAttribute="trailing" secondItem="m94-Oq-GGf" secondAttribute="trailing" id="IXb-Df-xws"/>

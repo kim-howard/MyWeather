@@ -33,8 +33,11 @@ enum DarkSkyAPI: APIBase {
     }
     
     var query: String? {
-        return "lang=ko&exclude=[minutely,alerts,flags]"
-//        return "exclude=[minutely,alerts,flags]"
+        if let languageCode = Locale.current.languageCode,
+            languageCode == "ko" {
+            return "lang=ko&exclude=[minutely,alerts,flags]"
+        }
+        return "exclude=[minutely,alerts,flags]"
     }
     
     var requestURL: URL? {

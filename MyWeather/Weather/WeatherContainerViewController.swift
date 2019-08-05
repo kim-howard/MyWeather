@@ -36,7 +36,7 @@ class WeatherContainerViewController: UIPageViewController {
     
     private func pageSourceViewController(_ index: Int) -> RegionWeatherViewController {
         guard let viewController = UIStoryboard(name: "RegionWeather", bundle: nil).instantiateInitialViewController() as? RegionWeatherViewController else {
-            fatalError("fail to instantiate RegionWeather")
+            fatalError("RegionWeather Storyboard Error")
         }
         // TODO: MapItem
         viewController.pageIndex = index + 1
@@ -87,9 +87,8 @@ extension WeatherContainerViewController: UIPageViewControllerDataSource {
 extension WeatherContainerViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let nowPageViewController = pageViewController.viewControllers?.first,
-            let pageIndex = pageViewControllers.firstIndex(of: nowPageViewController) else {
-                fatalError("nowPageViewController Index Error")
-        }
+            let pageIndex = pageViewControllers.firstIndex(of: nowPageViewController)
+            else { return }
         nowPageIndex = pageIndex
     }
 }

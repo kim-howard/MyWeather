@@ -27,10 +27,15 @@ class MainViewController: UIViewController {
     private lazy var footerView: MainTableFooterView = {
         guard let nibView: MainTableFooterView =
             Bundle.main.loadNibNamed("MainTableFooterView", owner: self, options: nil)?.first as? MainTableFooterView
-            else { fatalError("footer nib") }
+            else { fatalError("MainTableFooterView Nib Error") }
         nibView.delegate = self
         return nibView
     }()
+    
+    private struct StringBox {
+        static var networkErrorTitle: String = "Network Error".localized
+        static var networkErrorMessage: String = "Fail to Request. please check Your Network".localized
+    }
     
     // MARK: - LifeCycle
     
@@ -131,7 +136,7 @@ class MainViewController: UIViewController {
                 guard let self = self else { return }
                 self.loadingView.isHidden = true
                 if isThereNetworkError {
-                    self.errorAlert("Network Error", "Fail to Request. please check Your Network")
+                    self.errorAlert(StringBox.networkErrorTitle, StringBox.networkErrorMessage)
                 } else {
                     self.regionInformations = updatedRegionInformations
                     self.synchronizeUserDefault()
@@ -217,7 +222,7 @@ extension MainViewController: MainTableFooterViewDelegate {
     func didTapPlusButton() {
         guard let addResionViewController =
             UIStoryboard(name: "AddRegion", bundle: nil).instantiateInitialViewController() as? AddRegionViewController
-            else { fatalError("AddRegion Error") }
+            else { fatalError("AddRegion Nib Error") }
         addResionViewController.delegate = self
         self.present(addResionViewController, animated: true)
     }

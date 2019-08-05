@@ -28,8 +28,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Han-aJ-tc7">
                                 <rect key="frame" x="0.0" y="20" width="375" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴욕" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMD-5w-1GV">
-                                        <rect key="frame" x="166" y="30" width="43.5" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴욕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMD-5w-1GV">
+                                        <rect key="frame" x="8" y="30" width="359" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -43,11 +43,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="YMD-5w-1GV" firstAttribute="leading" secondItem="Han-aJ-tc7" secondAttribute="leading" constant="8" id="2oP-0x-6M4"/>
                                     <constraint firstItem="NSx-ib-hgH" firstAttribute="top" secondItem="YMD-5w-1GV" secondAttribute="bottom" constant="8" id="8mO-yR-2ZM"/>
                                     <constraint firstAttribute="height" constant="100" id="GeT-HA-QGl"/>
                                     <constraint firstItem="YMD-5w-1GV" firstAttribute="top" secondItem="Han-aJ-tc7" secondAttribute="top" constant="30" id="cQh-uU-Nt1"/>
                                     <constraint firstItem="YMD-5w-1GV" firstAttribute="centerX" secondItem="Han-aJ-tc7" secondAttribute="centerX" id="hIN-kA-ezY"/>
                                     <constraint firstItem="NSx-ib-hgH" firstAttribute="centerX" secondItem="Han-aJ-tc7" secondAttribute="centerX" id="hRV-UG-4Ez"/>
+                                    <constraint firstAttribute="trailing" secondItem="YMD-5w-1GV" secondAttribute="trailing" constant="8" id="wcy-5a-1dr"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b35-uk-aNZ">

@@ -13,6 +13,11 @@ class AddRegionViewController: UIViewController {
     
     // MARK: - IBOutlet
     
+    @IBOutlet weak var searchTitleLabel: UILabel! {
+        didSet {
+            searchTitleLabel.text = "Search for the location you want to find.".localized
+        }
+    }
     @IBOutlet weak var regionSearchBar: UISearchBar!
     @IBOutlet weak var cancelButton: UIButton! {
         didSet {
@@ -37,9 +42,14 @@ class AddRegionViewController: UIViewController {
     
     /// 현재 상태를 나타내기 위한 enum
     private enum SearchStatus: String {
-        case noResult = "결과가 없습니다."
-        case nowSearching = "검색중..."
-        case searchFail = "검색에 실패하였습니다. 다시 입력해주세요"
+        case noResult = "No Result"
+        case nowSearching = "Searching..."
+        case searchFail = "Fail To Request. please check your text"
+    }
+    
+    private struct StringBox {
+        static var locationError = "fail to find location".localized
+        static var searchTitle = "Search for the location you want to find.".localized
     }
     
     // MARK: - Lifecycle
@@ -84,7 +94,7 @@ class AddRegionViewController: UIViewController {
     ///
     /// - Parameter status: 선언해놓은 SearchStatus
     private func setStatusLabel(_ status: SearchStatus) {
-        statusLabel.text = status.rawValue
+        statusLabel.text = status.rawValue.localized
         statusLabel.isHidden = false
     }
     
@@ -178,7 +188,7 @@ extension AddRegionViewController: UITableViewDataSource {
         if let addressTitle = individualItem.placemark.title {
             cell.configure(addressTitle)
         } else {
-            cell.configure("fail to find location")
+            cell.configure(StringBox.locationError)
         }
         return cell
     }

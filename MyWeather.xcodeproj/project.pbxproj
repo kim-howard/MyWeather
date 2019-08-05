@@ -57,6 +57,7 @@
 		D9AF425922F18F94008696F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425822F18F94008696F0 /* Assets.xcassets */; };
 		D9AF425C22F18F94008696F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF425A22F18F94008696F0 /* LaunchScreen.storyboard */; };
 		D9AF426722F18F94008696F0 /* MyWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF426622F18F94008696F0 /* MyWeatherTests.swift */; };
+		D9EACBEE22F899D00067864E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9EACBF022F899D00067864E /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,10 @@
 		D9AF426222F18F94008696F0 /* MyWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AF426622F18F94008696F0 /* MyWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeatherTests.swift; sourceTree = "<group>"; };
 		D9AF426822F18F94008696F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9EACBEF22F899D00067864E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D9EACBF122F89A030067864E /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/RegionWeather.strings; sourceTree = "<group>"; };
+		D9EACBF222F89A030067864E /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D9EACBF322F89A030067864E /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,9 +258,6 @@
 				D9AF427222F19696008696F0 /* Main */,
 				D9AF427322F19698008696F0 /* Weather */,
 				D9AF427122F19685008696F0 /* SupportingFiles */,
-				D9AF425122F18F93008696F0 /* AppDelegate.swift */,
-				D9AF425A22F18F94008696F0 /* LaunchScreen.storyboard */,
-				D9AF425D22F18F94008696F0 /* Info.plist */,
 			);
 			path = MyWeather;
 			sourceTree = "<group>";
@@ -272,6 +274,10 @@
 		D9AF427122F19685008696F0 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D9AF425122F18F93008696F0 /* AppDelegate.swift */,
+				D9AF425A22F18F94008696F0 /* LaunchScreen.storyboard */,
+				D9AF425D22F18F94008696F0 /* Info.plist */,
+				D9EACBF022F899D00067864E /* Localizable.strings */,
 				D922121422F1BD7E00DAC2F2 /* Extension */,
 				D922121322F1BD7A00DAC2F2 /* Enum */,
 				D922121222F1BD7000DAC2F2 /* Protocol */,
@@ -372,6 +378,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = D9AF424522F18F93008696F0;
 			productRefGroup = D9AF424F22F18F93008696F0 /* Products */;
@@ -389,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9EACBEE22F899D00067864E /* Localizable.strings in Resources */,
 				D922122822F2CF1B00DAC2F2 /* Main.storyboard in Resources */,
 				D94599E622F4519D00F77B14 /* WeatherContainer.storyboard in Resources */,
 				D922120922F1A1A700DAC2F2 /* RegionWeatherHeaderView.xib in Resources */,
@@ -481,6 +489,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9AF425622F18F93008696F0 /* Base */,
+				D9EACBF122F89A030067864E /* ko */,
 			);
 			name = RegionWeather.storyboard;
 			sourceTree = "<group>";
@@ -489,8 +498,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9AF425B22F18F94008696F0 /* Base */,
+				D9EACBF222F89A030067864E /* ko */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D9EACBF022F899D00067864E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9EACBEF22F899D00067864E /* en */,
+				D9EACBF322F89A030067864E /* ko */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -500,6 +519,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -561,6 +581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -618,7 +639,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74HR8KDU73;
-				INFOPLIST_FILE = MyWeather/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyWeather/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,7 +647,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.onemoon.studio.MyWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -636,7 +657,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74HR8KDU73;
-				INFOPLIST_FILE = MyWeather/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyWeather/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -644,7 +665,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.onemoon.studio.MyWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

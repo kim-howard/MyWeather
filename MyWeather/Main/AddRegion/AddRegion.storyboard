@@ -70,8 +70,8 @@
                                 <rect key="frame" x="0.0" y="130" width="414" height="766"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohv-hL-Jyy">
-                                <rect key="frame" x="186" y="146" width="42" height="21"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohv-hL-Jyy">
+                                <rect key="frame" x="8" y="146" width="398" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -79,10 +79,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Ohv-hL-Jyy" firstAttribute="leading" secondItem="uIW-1G-e7t" secondAttribute="leading" constant="8" id="9Qk-0G-xow"/>
                             <constraint firstItem="uIW-1G-e7t" firstAttribute="trailing" secondItem="29e-d6-TSe" secondAttribute="trailing" id="AR7-XV-Fe4"/>
                             <constraint firstItem="Ohv-hL-Jyy" firstAttribute="top" secondItem="zak-dN-hrg" secondAttribute="bottom" constant="16" id="DKy-Ed-Tgh"/>
                             <constraint firstItem="Ohv-hL-Jyy" firstAttribute="centerX" secondItem="Wx4-uC-oNO" secondAttribute="centerX" id="Efy-Ve-s9t"/>
                             <constraint firstItem="uIW-1G-e7t" firstAttribute="trailing" secondItem="zak-dN-hrg" secondAttribute="trailing" id="HA2-7b-AR5"/>
+                            <constraint firstItem="uIW-1G-e7t" firstAttribute="trailing" secondItem="Ohv-hL-Jyy" secondAttribute="trailing" constant="8" id="Rk7-NM-gsA"/>
                             <constraint firstAttribute="bottom" secondItem="29e-d6-TSe" secondAttribute="bottom" id="jLe-yT-5v9"/>
                             <constraint firstItem="29e-d6-TSe" firstAttribute="top" secondItem="zak-dN-hrg" secondAttribute="bottom" id="lbV-4X-B5J"/>
                             <constraint firstItem="29e-d6-TSe" firstAttribute="leading" secondItem="uIW-1G-e7t" secondAttribute="leading" id="olK-So-2hW"/>
@@ -94,6 +96,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="53u-49-Jpc" id="0zh-k1-ZyK"/>
                         <outlet property="regionSearchBar" destination="GbW-F5-kH8" id="knE-AQ-TGd"/>
+                        <outlet property="searchTitleLabel" destination="yRg-bC-AD5" id="xbG-uy-Z1Z"/>
                         <outlet property="statusLabel" destination="Ohv-hL-Jyy" id="VaA-pe-8gt"/>
                         <outlet property="tableView" destination="29e-d6-TSe" id="1NG-Fc-Axu"/>
                     </connections>

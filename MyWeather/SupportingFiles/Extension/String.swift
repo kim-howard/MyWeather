@@ -13,4 +13,8 @@ extension String {
     func markTemparature() -> String {
         return "\(self)°"
     }
+    
+    var localized: String {
+        return NSLocalizedString(self, tableName: "Localizable", value: self, comment: "")
+    }
 }

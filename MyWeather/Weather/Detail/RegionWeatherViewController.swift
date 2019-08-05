@@ -42,18 +42,18 @@ class RegionWeatherViewController: UIViewController {
     
     // MARK: - Property
     
-    var userCelsiusPreference: Bool = {
+    var pageIndex: Int!
+    var totalIndex: Int!
+    var regionInformation: RegionInformation!
+    
+    private var userCelsiusPreference: Bool = {
         guard let sharedAppDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("AppDelegate Error")
         }
         return sharedAppDelegate.isUserPreferCelsius
     }()
     
-    var pageIndex: Int!
-    var totalIndex: Int!
-    var regionInformation: RegionInformation!
-    
-    lazy var infoPerHourCollectionView: HoursWeatherCollectionView = {
+    private lazy var infoPerHourCollectionView: HoursWeatherCollectionView = {
        let collectionView = HoursWeatherCollectionView(frame: CGRect.zero)
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
@@ -62,26 +62,32 @@ class RegionWeatherViewController: UIViewController {
        return collectionView
     }()
     
-    lazy var hourlyInformation: [Currently] = {
+    private lazy var hourlyInformation: [Currently] = {
         return regionInformation.weatherInfo.hourly.data
     }()
     
-    lazy var daliyInformation: [Datum] = {
+    private lazy var daliyInformation: [Datum] = {
         return regionInformation.weatherInfo.daily.data
     }()
     
-    lazy var todaySummray: String = {
-        return "Summary : " + todayInformation.summary
+    private lazy var todaySummray: String = {
+        return StringBox.summary + " : " + todayInformation.summary
     }()
     
-    lazy var todayInformation: Datum = {
+    private lazy var todayInformation: Datum = {
         return regionInformation.weatherInfo.daily.data[0]
     }()
-    
-    // TODO: Struct
-//    private struct WeatherDetailString {
-//
-//    }
+    //Sunset precipProbability Humidity WindSpeed Visibility
+    private struct StringBox {
+        static var summary: String = "Summary".localized
+        static var today: String = "Today".localized
+        static var sunrize: String = "Sunrize".localized
+        static var sunset: String = "Sunset".localized
+        static var precipProbability: String = "precipProbability".localized
+        static var humidity: String = "Humidity".localized
+        static var windSpeed: String = "WindSpeed".localized
+        static var visibility: String = "Visibility".localized
+    }
     
     // MARK: - LifeCycle
     
@@ -159,7 +165,7 @@ class RegionWeatherViewController: UIViewController {
                 let todayDate = Date(timeIntervalSince1970: TimeInterval(today.time))
                 label.text = todayDate.weekDay(regionInformation.weatherInfo.timezone)
             } else if subView.tag == 1 { // 오늘
-                label.text = "Today"
+                label.text = StringBox.today
             } else if subView.tag == 2 { // max
                 if userCelsiusPreference {
                     label.text = String(today.temperatureMax.switchDegree(.celsius))
@@ -280,16 +286,16 @@ extension RegionWeatherViewController: UITableViewDataSource {
                 else { return UITableViewCell() }
             if indexPath.row == 0 {
                 // 일출 sunrize Time / 일몰 sunset Time
-                cell.configure( true, "Sunrize", Date(timeIntervalSince1970: TimeInterval(todayInformation.sunriseTime)).userTime(regionInformation.weatherInfo.timezone))
-                cell.configure( false, "Sunset", Date(timeIntervalSince1970: TimeInterval(todayInformation.sunsetTime)).userTime(regionInformation.weatherInfo.timezone))
+                cell.configure(true, StringBox.sunrize, Date(timeIntervalSince1970: TimeInterval(todayInformation.sunriseTime)).userTime(regionInformation.weatherInfo.timezone))
+                cell.configure(false, StringBox.sunset, Date(timeIntervalSince1970: TimeInterval(todayInformation.sunsetTime)).userTime(regionInformation.weatherInfo.timezone))
             } else if indexPath.row == 1 {
                 // 비올확률 precipProbability /  습도 humidity
-                cell.configure(true, "precipProbability", "\(Int(todayInformation.precipProbability * 100.0))%")
-                cell.configure(false, "Humidity", "\(Int(todayInformation.humidity * 100.0))%")
+                cell.configure(true, StringBox.precipProbability, "\(Int(todayInformation.precipProbability * 100.0))%")
+                cell.configure(false, StringBox.humidity, "\(Int(todayInformation.humidity * 100.0))%")
             } else {
                 // 풍속 windSpeed / 가시거리 visibility => miles
-                cell.configure(true, "WindSpeed", "\(todayInformation.windSpeed) MPH")
-                cell.configure(false, "Visibility", "\(todayInformation.visibility) Mi")
+                cell.configure(true, StringBox.windSpeed, "\(todayInformation.windSpeed) MPH")
+                cell.configure(false, StringBox.visibility, "\(todayInformation.visibility) Mi")
             }
             return cell
         }

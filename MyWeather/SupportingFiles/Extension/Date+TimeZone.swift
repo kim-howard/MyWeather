@@ -13,7 +13,7 @@ extension Date {
     func userTime(_ timezoneIdentifier: String) -> String {
         if let timeZone = TimeZone(identifier: timezoneIdentifier) {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "a HH:mm"
+            dateFormatter.dateFormat = "a hh:mm"
             dateFormatter.timeZone = timeZone
             return dateFormatter.string(from: self)
         }

@@ -12,7 +12,6 @@ enum DarkSkyAPI: APIBase {
 
     case weather(_ latitude: String, _ longitude: String)
     
-    // TODO: RESET KEY
     private var APIKey: String {
         return "089b1a213049e66cef1c1054f4e4b444"
     }

@@ -16,7 +16,6 @@
 import UIKit
 import MapKit
 
-// TODO: TableView section 3개 있어야 한다. 셀도 3개
 class RegionWeatherViewController: UIViewController {
     
     // MARK: - IBOutlet

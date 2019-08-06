@@ -12,7 +12,6 @@ class RegionWeatherSummaryTableViewCell: UITableViewCell, Reusable {
 
     @IBOutlet weak var summaryLabel: UILabel!
     
-    // TODO: Height 계산
     func configure(_ summary: String) {
         summaryLabel.text = summary
     }

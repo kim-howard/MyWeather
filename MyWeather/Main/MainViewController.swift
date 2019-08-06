@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     private let updateRegionGroup = DispatchGroup()
     private let updateRegionQueue = DispatchQueue(label: "updateRegionQueue", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
     private var regionInformations: [RegionInformation] = []
+    private var isRegionAdded: Bool = false
     
     private lazy var footerView: MainTableFooterView = {
         guard let nibView: MainTableFooterView =
@@ -46,12 +47,14 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateRegionDate()
+        if !isRegionAdded {
+            updateRegionDate()
+            isRegionAdded = false
+        }
     }
     
     // MARK: - Method
     
-    // TODO: Nested Function 생각해보기
     private func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -69,9 +72,6 @@ class MainViewController: UIViewController {
         footerView.frame = footerViewWrapper.bounds
         footerViewWrapper.addSubview(footerView)
         tableView.tableFooterView = footerViewWrapper
-    // TODO: 왜 아래는 안되는지 물어보기
-//        footerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50.0)
-//        tableView.tableFooterView = footerView
     }
     
     /// 기존에 유저가 검색한 region 의 정보를 확인하여 보여준다.
@@ -141,7 +141,6 @@ class MainViewController: UIViewController {
                     self.synchronizeUserDefault()
                     self.tableView.reloadData()
                 }
-
             }
             
         }
@@ -230,6 +229,7 @@ extension MainViewController: MainTableFooterViewDelegate {
 extension MainViewController: AddRegionDelegate {
     // 검색한 결과를 받는다.
     func addRegion(_ item: MKMapItem) {
+        isRegionAdded = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let coordinate = item.placemark.coordinate
         networkManager.requestWeather(coordinate.latitude, coordinate.longitude) { [weak self] (data, err) in
@@ -250,9 +250,12 @@ extension MainViewController: AddRegionDelegate {
             // UIUpdate
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
+                self.tableView.beginUpdates()
                 self.regionInformations.append(newRegionInformation)
                 self.synchronizeUserDefault()
-                self.tableView.reloadData()
+                self.tableView.insertRows(at: [IndexPath(row: self.regionInformations.count - 1, section: 0)], with: .automatic)
+                self.tableView.endUpdates()
+                self.updateRegionDate()
             }
         }
     }

@@ -12,7 +12,6 @@ import MapKit
 class WeatherContainerViewController: UIPageViewController {
     
     var initialIndex = 0
-    // TODO: pages Logic
     var pageSources: [RegionInformation]!
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -38,7 +37,6 @@ class WeatherContainerViewController: UIPageViewController {
         guard let viewController = UIStoryboard(name: "RegionWeather", bundle: nil).instantiateInitialViewController() as? RegionWeatherViewController else {
             fatalError("RegionWeather Storyboard Error")
         }
-        // TODO: MapItem
         viewController.pageIndex = index + 1
         viewController.totalIndex = pageSources.count
         viewController.regionInformation = pageSources[index]

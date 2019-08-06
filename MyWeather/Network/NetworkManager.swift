@@ -9,7 +9,6 @@
 import UIKit
 import CoreLocation
 
-// TODO: Custom Error 
 class NetworkManager {
     
     private lazy var urlSession: URLSession = {
@@ -31,7 +30,6 @@ class NetworkManager {
         
         urlSession.dataTask(with: url) { (data, _, err) in
             if let error = err {
-                print(error.localizedDescription)
                 completion(nil, .dataTaskError)
                 return
             }

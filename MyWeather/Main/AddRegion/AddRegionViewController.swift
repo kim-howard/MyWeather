@@ -44,7 +44,7 @@ class AddRegionViewController: UIViewController {
     private enum SearchStatus: String {
         case noResult = "No Result"
         case nowSearching = "Searching..."
-        case searchFail = "Fail To Request. please check your text"
+        case searchFail = "Fail To Request. please check your text or network"
     }
     
     private struct StringBox {

@@ -66,7 +66,7 @@ class RegionWeatherViewController: UIViewController {
         return regionInformation.weatherInfo.hourly.data
     }()
     
-    private lazy var daliyInformation: [Datum] = {
+    private lazy var daliyInformation: [OneDayData] = {
         return regionInformation.weatherInfo.daily.data
     }()
     
@@ -74,7 +74,7 @@ class RegionWeatherViewController: UIViewController {
         return StringBox.summary + " : " + todayInformation.summary
     }()
     
-    private lazy var todayInformation: Datum = {
+    private lazy var todayInformation: OneDayData = {
         return regionInformation.weatherInfo.daily.data[0]
     }()
     //Sunset precipProbability Humidity WindSpeed Visibility

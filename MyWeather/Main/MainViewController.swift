@@ -18,7 +18,6 @@ class MainViewController: UIViewController {
     
     // MARK: - Property
     
-    private let customLocationManager = CustomLocationManager()
     private let networkManager = NetworkManager()
     private let updateRegionGroup = DispatchGroup()
     private let updateRegionQueue = DispatchQueue(label: "updateRegionQueue", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
@@ -195,8 +194,6 @@ extension MainViewController: UITableViewDelegate {
         self.present(weatherContainerViewController, animated: true)
     }
     
-    
-    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "delete") { [weak self] (_, _, success) in
             guard let self = self else { return }
@@ -228,15 +225,6 @@ extension MainViewController: MainTableFooterViewDelegate {
     }
 }
 
-// MARK: - CLLocationManagerDelegate
-
-// TODO: 위치 확인해서 테이블뷰에 추가하는 로직
-extension MainViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        customLocationManager.checkLocationService(didChangeAuthorization: status)
-    }
-}
-
 // MARK: - AddRegionDelegate
 
 extension MainViewController: AddRegionDelegate {
@@ -249,9 +237,8 @@ extension MainViewController: AddRegionDelegate {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
             guard let self = self else { return }
-            if let error = err {
-                let alertController = UIAlertController(title: "요청에 실패하였습니다.", message: error.alertMessage, preferredStyle: .alert)
-                self.present(alertController, animated: true)
+            if let _ = err {
+                self.errorAlert(StringBox.networkErrorTitle, StringBox.networkErrorMessage)
                 return
             }
             // data == nil 인 경우도 error로 확인되기 때문에 fored unwrapping 사용
@@ -261,13 +248,11 @@ extension MainViewController: AddRegionDelegate {
                                                         longitude: item.placemark.coordinate.longitude,
                                                         weatherInfo: data!)
             // UIUpdate
-            DispatchQueue.main.async {
-                self.tableView.beginUpdates()
-                // TODO: Section change
-                self.tableView.insertRows(at: [IndexPath(row: self.regionInformations.count, section: 0)], with: .automatic)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 self.regionInformations.append(newRegionInformation)
                 self.synchronizeUserDefault()
-                self.tableView.endUpdates()
+                self.tableView.reloadData()
             }
         }
     }

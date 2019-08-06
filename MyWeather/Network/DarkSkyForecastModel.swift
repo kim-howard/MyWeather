@@ -37,11 +37,11 @@ struct Currently: Codable {
 struct Daily: Codable {
     let summary: String
     let icon: String
-    let data: [Datum]
+    let data: [OneDayData]
 }
 
 // MARK: - Datum
-struct Datum: Codable {
+struct OneDayData: Codable {
     let time: Int
     let summary: String
     let icon: String

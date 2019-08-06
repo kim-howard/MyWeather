@@ -15,7 +15,7 @@ class RegionWeatherDailyTableViewCell: UITableViewCell, Reusable {
     @IBOutlet weak var maxTemparatureLabel: UILabel!
     @IBOutlet weak var minTemparatureLabel: UILabel!
     
-    func configure(_ dayInfo: Datum, _ timezoneIdentifier: String) {
+    func configure(_ dayInfo: OneDayData, _ timezoneIdentifier: String) {
         weekDayLabel.text = Date(timeIntervalSince1970: TimeInterval(dayInfo.time)).weekDay(timezoneIdentifier)
         iconImage.image = WeatherStatus(dayInfo.icon).icon
         if let sharedAppDelegate = UIApplication.shared.delegate as? AppDelegate,

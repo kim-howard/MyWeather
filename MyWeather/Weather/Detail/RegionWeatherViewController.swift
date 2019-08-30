@@ -111,8 +111,12 @@ class RegionWeatherViewController: UIViewController {
     }
     
     private func collectionViewForHourView() {
-        infoPerHourCollectionView.frame = infoPerHourView.bounds
         infoPerHourView.addSubview(infoPerHourCollectionView)
+        infoPerHourCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        infoPerHourCollectionView.topAnchor.constraint(equalToSystemSpacingBelow: infoPerHourView.topAnchor, multiplier: 0).isActive = true
+        infoPerHourCollectionView.leadingAnchor.constraint(equalToSystemSpacingAfter: infoPerHourView.leadingAnchor, multiplier: 0).isActive = true
+        infoPerHourCollectionView.trailingAnchor.constraint(equalToSystemSpacingAfter: infoPerHourView.trailingAnchor, multiplier: 0).isActive = true
+        infoPerHourCollectionView.bottomAnchor.constraint(equalToSystemSpacingBelow: infoPerHourView.bottomAnchor, multiplier: 0).isActive = true
     }
     
     private func setTableView() {

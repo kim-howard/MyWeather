@@ -22,30 +22,30 @@ class NetworkManager {
     ///   - completion: 응답 클로저 longitude latitude
     func requestWeather(_ latitude: Double,
                         _ longitude: Double,
-                        completion: @escaping (_ data: DarkSkyForecastModel?, _ err: NetworkError?) -> Void) {
+                        completion: @escaping (_ result: NetworkResult<DarkSkyForecastModel>) -> Void) {
         guard let url = DarkSkyAPI.weather(String(latitude), String(longitude)).requestURL else {
-            completion(nil,.failToURLWithLocation)
+            completion(.fail(.failToURLWithLocation))
             return
         }
         
         urlSession.dataTask(with: url) { (data, _, err) in
             if let error = err {
-                completion(nil, .dataTaskError)
+                print(error.localizedDescription)
+                completion(.fail(.dataTaskError))
                 return
             }
             
             guard let data = data else {
-                completion(nil,.dataIsNil)
+                completion(.fail(.dataIsNil))
                 return
             }
             
             do {
                 let weatherData = try JSONDecoder().decode(DarkSkyForecastModel.self, from: data)
-                completion(weatherData,nil)
+                completion(.success(weatherData))
             } catch {
-                completion(nil,.jsonParsingError)
+                completion(.fail(.jsonParsingError))
             }
         }.resume()
-        
     }
 }

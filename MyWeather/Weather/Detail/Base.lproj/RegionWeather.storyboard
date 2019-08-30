@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backNight" translatesAutoresizingMaskIntoConstraints="NO" id="IQh-Cr-Dcs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day-image" translatesAutoresizingMaskIntoConstraints="NO" id="IQh-Cr-Dcs">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TH-hg-xay" userLabel="DimView">
@@ -235,7 +235,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backNight" width="730" height="1095"/>
+        <image name="clear-day-image" width="750" height="1334"/>
         <image name="list" width="128" height="128"/>
     </resources>
 </document>

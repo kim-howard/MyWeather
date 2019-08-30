@@ -15,5 +15,3 @@ struct RegionInformation: Codable {
     let longitude: Double
     let weatherInfo: DarkSkyForecastModel
 }
-
-

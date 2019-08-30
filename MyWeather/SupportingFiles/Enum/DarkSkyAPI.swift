@@ -12,10 +12,6 @@ enum DarkSkyAPI: APIBase {
 
     case weather(_ latitude: String, _ longitude: String)
     
-    private var APIKey: String {
-        return "089b1a213049e66cef1c1054f4e4b444"
-    }
-    
     var scheme: String {
         return "https"
     }
@@ -27,7 +23,7 @@ enum DarkSkyAPI: APIBase {
     var path: String? {
         switch self {
         case .weather(let latitude, let longitude):
-            return "/forecast/\(self.APIKey)/\(latitude),\(longitude)"
+            return "/forecast/\(APIKey.darkSky.rawValue)/\(latitude),\(longitude)"
         }
     }
     

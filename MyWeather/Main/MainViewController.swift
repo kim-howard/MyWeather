@@ -110,26 +110,24 @@ class MainViewController: UIViewController {
                 self.updateRegionGroup.enter()
                 self.networkManager.requestWeather(regionInfo.latitude,
                                                    regionInfo.longitude,
-                                                   completion: { (data, error) in
-                                                    if let error = error {
-                                                        isThereNetworkError = true
-                                                        print(error.alertMessage)
-                                                        self.updateRegionGroup.leave()
-                                                        return
-                                                    }
-                                                    // Update data
-                                                    let updatedRegionInformation = RegionInformation(name: regionInfo.name,
-                                                                                                     latitude: regionInfo.latitude,
-                                                                                                     longitude: regionInfo.longitude,
-                                                                                                     weatherInfo: data!)
-                                                    updatedRegionInformations[infoIndex] = updatedRegionInformation
-                                                    self.updateRegionGroup.leave()
-                                                    
+                                                   completion:
+                    { result in
+                        switch result {
+                        case .success(let data):
+                            let updatedRegionInformation = RegionInformation(name: regionInfo.name,
+                                                                             latitude: regionInfo.latitude,
+                                                                             longitude: regionInfo.longitude,
+                                                                             weatherInfo: data)
+                            updatedRegionInformations[infoIndex] = updatedRegionInformation
+                        case .fail(let error):
+                            isThereNetworkError = true
+                            print(error.alertMessage)
+                        }
+                        self.updateRegionGroup.leave()
                 })
             }
             
             self.updateRegionGroup.wait()
-            
             DispatchQueue.main.async { [weak self] in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 guard let self = self else { return }
@@ -232,30 +230,33 @@ extension MainViewController: AddRegionDelegate {
         isRegionAdded = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let coordinate = item.placemark.coordinate
-        networkManager.requestWeather(coordinate.latitude, coordinate.longitude) { [weak self] (data, err) in
+        networkManager.requestWeather(coordinate.latitude, coordinate.longitude) { [weak self] result in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
-            guard let self = self else { return }
-            if let _ = err {
-                self.errorAlert(StringBox.networkErrorTitle, StringBox.networkErrorMessage)
-                return
-            }
-            // data == nil 인 경우도 error로 확인되기 때문에 fored unwrapping 사용
-            let newRegionInformation = RegionInformation(
-                                                        name: item.name ?? "",
-                                                        latitude: item.placemark.coordinate.latitude,
-                                                        longitude: item.placemark.coordinate.longitude,
-                                                        weatherInfo: data!)
-            // UIUpdate
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.tableView.beginUpdates()
-                self.regionInformations.append(newRegionInformation)
-                self.synchronizeUserDefault()
-                self.tableView.insertRows(at: [IndexPath(row: self.regionInformations.count - 1, section: 0)], with: .automatic)
-                self.tableView.endUpdates()
-                self.updateRegionDate()
+            
+            switch result {
+            case .success(let data):
+                let newRegionInformation = RegionInformation(name: item.name ?? "",
+                                                             latitude: item.placemark.coordinate.latitude,
+                                                             longitude: item.placemark.coordinate.longitude,
+                                                             weatherInfo: data)
+                // UIUpdate
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.tableView.beginUpdates()
+                    self.regionInformations.append(newRegionInformation)
+                    self.synchronizeUserDefault()
+                    self.tableView.insertRows(at: [IndexPath(row: self.regionInformations.count - 1, section: 0)], with: .automatic)
+                    self.tableView.endUpdates()
+                    self.updateRegionDate()
+                }
+            case .fail(let error):
+                print(error.alertMessage)
+                DispatchQueue.main.async {
+                    self.errorAlert(StringBox.networkErrorTitle, StringBox.networkErrorMessage)
+                }
             }
         }
     }

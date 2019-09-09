@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     
     private let networkManager = NetworkManager()
     private let updateRegionGroup = DispatchGroup()
-    private let updateRegionQueue = DispatchQueue(label: "updateRegionQueue", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+    private let updateRegionQueue = DispatchQueue(label: "updateRegionQueue", qos: .userInteractive, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
     private var regionInformations: [RegionInformation] = []
     private var isRegionAdded: Bool = false
     
@@ -104,30 +104,30 @@ class MainViewController: UIViewController {
         var updatedRegionInformations = regionInformations
         var isThereNetworkError: Bool = false
         
-        updateRegionQueue.async { [weak self] in
-            guard let self = self else { return }
-            for (infoIndex, regionInfo) in self.regionInformations.enumerated() {
-                self.updateRegionGroup.enter()
-                self.networkManager.requestWeather(regionInfo.latitude,
-                                                   regionInfo.longitude,
-                                                   completion:
-                    { result in
-                        switch result {
-                        case .success(let data):
-                            let updatedRegionInformation = RegionInformation(name: regionInfo.name,
-                                                                             latitude: regionInfo.latitude,
-                                                                             longitude: regionInfo.longitude,
-                                                                             weatherInfo: data)
-                            updatedRegionInformations[infoIndex] = updatedRegionInformation
-                        case .fail(let error):
-                            isThereNetworkError = true
-                            print(error.alertMessage)
-                        }
-                        self.updateRegionGroup.leave()
+        updatedRegionInformations.enumerated().forEach { (index, information) in
+            updateRegionGroup.enter()
+            let item = DispatchWorkItem(block: { [weak self] in
+                guard let self = self else { return }
+                self.networkManager.requestWeather(information.latitude, information.longitude, completion: { result in
+                    switch result {
+                    case .success(let data):
+                        let updatedRegionInformation = RegionInformation(name: information.name,
+                                                                         latitude: information.latitude,
+                                                                         longitude: information.longitude,
+                                                                         weatherInfo: data)
+                        updatedRegionInformations[index] = updatedRegionInformation
+                    case .fail(let error):
+                        isThereNetworkError = true
+                        print("network Error at \(index) & message : \(error.localizedDescription)")
+                    }
+                    self.updateRegionGroup.leave()
                 })
-            }
-            
-            self.updateRegionGroup.wait()
+                
+            })
+            updateRegionQueue.async(group: updateRegionGroup, execute: item)
+        }
+        
+        updateRegionGroup.notify(queue: updateRegionQueue) {
             DispatchQueue.main.async { [weak self] in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 guard let self = self else { return }
@@ -140,8 +140,8 @@ class MainViewController: UIViewController {
                     self.tableView.reloadData()
                 }
             }
-            
         }
+        
     }
     
     private func errorAlert(_ title: String, _ message: String) {
